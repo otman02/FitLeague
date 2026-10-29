@@ -13,7 +13,7 @@
 
 </head>
 
-<body class="max-w-250 m-auto  flex flex-col justify-between gap-20 bg-amber-50 ">
+<body class="max-w-250 m-auto  flex flex-col justify-between gap-20 bg-amber-50">
     <header class="flex justify-between  bg-green-500 pl-4 pr-4  content-center items-center rounded-md h-15 shadow-xl">
         <div class="flex justify-between gap-5">
             <div class="bg-yellow-500 h-7 w-7 flex items-center justify-center rounded-sm"><i
@@ -41,7 +41,7 @@
         </section>
 
         <section class="flex justify-between">
-            <div class="w-80 bg-white h-15 flex items-center rounded-md gap-5 border">
+            <div class="w-80 bg-white h-15 flex items-center rounded-md gap-5 border px-2">
                 <div class="bg-yellow-500 h-7 w-7 flex items-center justify-center rounded-sm"><i
                         class="fa-solid fa-trophy"> </i> </div>
                 <div class="flex flex-col justify-center">
@@ -49,7 +49,7 @@
                     <p>defis totale</p>
                 </div>
             </div>
-            <div class="w-80 bg-white h-15 flex items-center rounded-md gap-5 border">
+            <div class="w-80 bg-white h-15 flex items-center rounded-md gap-5 border px-2 ">
                 <div class="bg-yellow-500 h-7 w-7 flex items-center justify-center rounded-sm"><i
                         class="fa-solid fa-user-group"></i></div>
                 <div class="flex flex-col justify-center">
@@ -57,7 +57,7 @@
                     <p> participantes</p>
                 </div>
             </div>
-            <div class="w-80 bg-white h-15 flex items-center rounded-md gap-5 border">
+            <div class="w-80 bg-white h-15 flex items-center rounded-md gap-5 border px-2">
                 <div class="bg-yellow-500 h-7 w-7 flex items-center justify-center rounded-sm"><i
                         class="fa-solid fa-bolt  "></i></div>
                 <div class="flex flex-col justify-center">
@@ -73,20 +73,20 @@
                 <h1 class="text-2xl font-bold">chompions de la ligue</h1>
                 <p>Le plus grand nombre de premières places remporte le classement</p>
             </div>
-            <div class="w-50 bg-yellow-400 h-15 rounded-md border">
+            <div class="w-50 bg-yellow-400 h-15 rounded-md border shadow-md">
                 <div class="flex gap-5 items-center"><img src="assets/marvels-spider-man-3840x2160-11990.jpeg "
                         class="w-10 h-10 rounded-full object-cover mt-2 ml-2" alt="otman">
                     <p>1 otman </p>
                 </div>
             </div>
-            <div class="w-50 bg-gray-300 h-15 rounded-md border">
+            <div class="w-50 bg-gray-300 h-15 rounded-md border shadow-md">
                 <div class="flex gap-5 items-center"><img src="assets/spider-man-5120x2880-21603.jpg"
                         class="w-10 h-10 rounded-full object-cover mt-2 ml-2" alt="otman">
                     <p>2 otman</p>
                 </div>
             </div>
-            <div class="w-50 bg-orange-300 h-15 rounded-md border">
-                <div class="flex gap-5 items-center"><img src="assets/spider-man-marvel-6000x4000-11025.jpg"
+            <div class="w-50 bg-orange-300 h-15 rounded-md border shadow-md">
+                <div class="flex gap-5 items-center "><img src="assets/spider-man-marvel-6000x4000-11025.jpg"
                         class="w-10 h-10 rounded-full object-cover mt-2 ml-2" alt="otman">
                     <p>3 otman</p>
                 </div>
@@ -96,15 +96,15 @@
         </section>
 
 
-        <section>
-            <div class="flex-col">
+        <section class=" mb-4 flex flex-col gap-3">
+            <div class="flex-col ">
                 <p>defis en coure</p>
                 <p class="text-2xl font-bold"> votre ligue</p>
             </div>
 
 
             <div class="flex gap-20">
-                <div class="h-20 w-120 bg-white rounded-md border ">
+                <div class="h-20 w-120 bg-white rounded-md border shadow-md px-3">
                     <div class="flex gap-5 items-center"><img src="assets/marvels-spider-man-3840x2160-11990.jpeg"
                             alt="" class="w-10 h-10 rounded-full object-cover">
                         <div>
@@ -114,7 +114,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="h-20 w-120 bg-white  rounded-md border">
+                <div class="h-20 w-120 bg-white  rounded-md border shadow-md px-3">
                     <div class="flex gap-5 items-center"><img src="assets/spider-man-5120x2880-21603.jpg" alt=""
                             class="w-10 h-10 rounded-full object-cover">
                         <div>
@@ -131,11 +131,25 @@
 
     </main>
 
-    <div class="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 hidden">
-        <div class=" relativen bg-white w-full max-w-md p-6 rounded-3xl shadow-xl"> <button  id="close" class="absolute top-4 right-4">x</button> <h2 class="text-2xl font-bold mb-4">créer un defi</h2> <form id="form" action="" class=""></form></div>
+    <div class="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center hidden" id="nvdefi">
+        <div class=" relativen bg-white w-full max-w-md p-6 rounded-3xl shadow-xl"> <button id="close"
+                class="relative bottom-5 bg-red-500 rounded-xl p-1 w-10 text-white">X</button>
+            <h2 class="text-2xl font-bold mb-4">créer un defi</h2>
+            <form id="formDefi"  class="flex flex-col gap-5 ">
+                <label for="nomDefi">Nom de defi</label><input required type="text" 
+                class="border rounded-md py-2 px-4" id="nomDefi" name="defi" placeholder="Nom de defi">
+                <label for="sport">Sport</label><input required type="text" class="border rounded-md py-2 px-4" id="sport" placeholder="Ex: Footbal">
+                <label for="description">Description</label><input required type="text" class="border rounded-md py-2 px-4" id="description" placeholder="Description">
+                <label for="photoDefi">Photo du defi</label><input required type="file"
+                class="file:mr-3 file:py-2 file:px-4 file:border-0 hover:file:bg-green-900 text-balck text-sm border rounded-md file:bg-black file:text-white shadow-xl" id="photoDefi">
+
+                <button class="bg-green-900 rounded-xl p-1 text-[#fff]">Creer le defi</button>
+
+            </form>
+        </div>
     </div>
 
-
+    <script src="js/main.js"></script>
 </body>
 
 </html>
