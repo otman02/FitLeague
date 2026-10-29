@@ -1,7 +1,7 @@
  let defis= [
 
 { 
-    id : 1,
+       id : 1,
     sport : "beycecl-race" ,
     descreption : "petite race with bycecl",
     status: "encours",
@@ -10,7 +10,7 @@
     datedebut:"30-10-2026",
     datefine: "2-11-2026"
 },
-{   id : 2,
+{      id : 2,
     sport : "push-up",
     descreption : "push up context",
     status: "encours",
@@ -19,7 +19,7 @@
     datedebut:"30-10-2026",
     datefine: "2-11-2026"
 },
-{   id : 3,
+{      id : 3,
     sport : "swimmig",
     descreption : "swimming challange",
     status: "encours",
@@ -28,7 +28,7 @@
     datedebut:"30-10-2026",
     datefine: "2-11-2026"
 },
-{   id : 4,
+{      id : 4,
     sport : "walking ",
     descreption : "walking march",
     status: "encours",
@@ -37,10 +37,10 @@
     datedebut:"30-10-2026",
     datefine: "2-11-2026"
 },
-{   id : 5,
+{      id : 5,
     sport : "running",
     descreption : "a race ",
-    
+
     status: "encours",
     image: "assets/running.webp",
     target: "hh",
