@@ -1,7 +1,7 @@
  let defis= [
 
 { 
-       id : 1,
+ id : 1,
     sport : "beycecl-race" ,
     descreption : "petite race with bycecl",
     status: "encours",
