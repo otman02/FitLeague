@@ -38,7 +38,7 @@ const participantes = [
                 name : "otman hannoun",
                 pseudo: "mrxma" ,               
                  Image: "assets/sm.jpeg",
-                 perferormance: 50
+                 perferormance: 50,
               
             }
 
