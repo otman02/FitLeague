@@ -131,32 +131,36 @@
     </div>
 
 
-    <div class="ajouterDefi popUp fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center overflowy-autoscroll hidden"
+    <div class="ajouterDefi popUp fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center hidden"
         id="nvdefi">
-        <div class=" overflow-auto relative bg-white w-full max-w-md p-6 rounded-3xl shadow-xl"> <button id="closeDefi"
-                class="relative bottom-5 bg-red-500 rounded-xl p-1 w-10 text-white">X</button>
+        <div class="  bg-white w-full max-w-md p-6 rounded-3xl shadow-xl"> <button id="closeDefi"
+                class=" bottom-5 bg-red-500 rounded-xl p-1 w-10 text-white cursor-pointer">X</button>
             <h2 class="text-2xl font-bold mb-4">créer un defi</h2>
             <form name="formDefi" class="flex flex-col gap-5 ">
-                <label for="nomDefi">Nom de defi</label><input required type="text" class="border rounded-md py-2 px-4"
-                    id="nomDefi" name="defi" placeholder="Nom de defi">
+                <div class="statusDeForm  rounded-md text-center py-2"></div>
+                <label for="nomDefi">Nom de defi</label>
+                <input required type="text" class="border rounded-md py-2 px-4" id="nomDefi" name="defi"
+                    placeholder="Nom de defi">
 
-                <label for="sport">Sport</label><input required type="text" class="border rounded-md py-2 px-4"
-                    id="sport" placeholder="Ex: Footbal">
+                <label for="sport">Sport</label>
+                <input required type="text" class="border rounded-md py-2 px-4" name="sport" placeholder="Ex: Footbal">
 
-                <label for="objectif">objectif</label><input required type="text" class="border rounded-md py-2 px-4"
-                    id="objectif" placeholder="Objectif de defi">
+                <label for="objectif">objectif</label>
+                <input required type="text" class="border rounded-md py-2 px-4" name="objectif"
+                    placeholder="Objectif de defi">
 
-                <label for="dateFin">Date fin</label><input required type="date" class="border rounded-md py-2 px-4"
-                    id="sport">
+                <label for="dateFin">Date fin</label>
+                <input required type="date" class="border rounded-md py-2 px-4" name="dateFin">
 
-                <label for="description">Description</label><textarea required class="border rounded-md py-2 px-4"
-                    id="description" placeholder="Description"></textarea>
+                <label for="description">Description</label><textarea required name="description"
+                    class="border rounded-md py-2 px-4" id="description" placeholder="Description"></textarea>
 
-                <label for="photoDefi">Photo du defi</label><input required type="file"
+                <label for="photoDefi">Photo du defi</label>
+                <input required type="file"
                     class="file:mr-3 file:py-2 file:px-4 file:border-0 hover:file:bg-green-900 text-balck text-sm border rounded-md file:bg-black file:text-white shadow-xl"
-                    id="photoDefi">
+                    name="image">
 
-                <button class="bg-green-900 rounded-xl p-1 text-[#fff]" type="submit">Creer le defi</button>
+                <button class="bg-green-900 rounded-xl p-1 text-[#fff] btnAjout">Creer le defi</button>
             </form>
         </div>
 
@@ -259,28 +263,15 @@
         </header>
 
         <section class="flex gap-8 flex-col">
-            <h1 class="font-bold bg-yellow-200 w-40 h-10 rounded-xl flex justify-center items-center shadow-xl">les participantes</h1>
+            <h1 class="font-bold bg-yellow-200 w-40 h-10 rounded-xl flex justify-center items-center shadow-xl">les
+                participantes</h1>
             <div class="flex gap-8">
                 <div class="flex gap-15 justify-center items-center w-90 h-25 bg-green-600 rounded-md shadow-xl">
                     <div><img src="assets/marvels-spider-man-3840x2160-11990.jpeg" alt="otman"
                             class="w-10 h-10 rounded-full object-cover mt-2 ml-2"></div>
                     <div>
                         <p class="font-bold">otman hannoun</p>
-                        <p >mrxma</p>
-                    </div>
-                    <div class="flex flex-col gap-2"><button class="bg-yellow-200 rounded-md cursor-pointer"><i
-                                class="fa-solid fa-pen-to-square"></i></button><button
-                            class="bg-red-500 rounded-md cursor-pointer"><i
-                                class="fa-solid fa-trash"></i></button><button
-                            class="bg-green-100 cursor-pointer rounded-md"><i class="fa-solid fa-eye"></i></button>
-                    </div>
-                </div>
-                <div class="flex gap-15 justify-center items-center w-90 h-25  bg-green-600 rounded-md shadow-xl">
-                    <div><img src="assets/marvels-spider-man-3840x2160-11990.jpeg" alt="otman"
-                            class="w-10 h-10 rounded-full object-cover mt-2 ml-2"></div>
-                    <div>
-                        <p class="font-bold">otman hannoun</p>
-                        <p >mrxma</p>
+                        <p>mrxma</p>
                     </div>
                     <div class="flex flex-col gap-2"><button class="bg-yellow-200 rounded-md cursor-pointer"><i
                                 class="fa-solid fa-pen-to-square"></i></button><button
@@ -295,7 +286,21 @@
                     <div>
                         <p class="font-bold">otman hannoun</p>
                         <p>mrxma</p>
-                        
+                    </div>
+                    <div class="flex flex-col gap-2"><button class="bg-yellow-200 rounded-md cursor-pointer"><i
+                                class="fa-solid fa-pen-to-square"></i></button><button
+                            class="bg-red-500 rounded-md cursor-pointer"><i
+                                class="fa-solid fa-trash"></i></button><button
+                            class="bg-green-100 cursor-pointer rounded-md"><i class="fa-solid fa-eye"></i></button>
+                    </div>
+                </div>
+                <div class="flex gap-15 justify-center items-center w-90 h-25  bg-green-600 rounded-md shadow-xl">
+                    <div><img src="assets/marvels-spider-man-3840x2160-11990.jpeg" alt="otman"
+                            class="w-10 h-10 rounded-full object-cover mt-2 ml-2"></div>
+                    <div>
+                        <p class="font-bold">otman hannoun</p>
+                        <p>mrxma</p>
+
                     </div>
                     <div class="flex flex-col gap-2"><button class="bg-yellow-200 rounded-md cursor-pointer"><i
                                 class="fa-solid fa-pen-to-square"></i></button><button

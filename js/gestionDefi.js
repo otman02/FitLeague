@@ -1,10 +1,16 @@
-let containerDefi = document.querySelector(".conatinerDefi")
+let config = {
+    id : 0
+}
 
-function divDefi(defi){
+let containerDefi = document.querySelector(".conatinerDefi")
+affichageDefi()
+
+
+function divDefi(defi) {
     let dateFin = new Date(defi.datefine)
     let now = new Date()
     let status = 'en cour'
-    if(dateFin < now ){
+    if (dateFin < now) {
         status = 'terminer'
     }
     return `
@@ -44,24 +50,71 @@ function divDefi(defi){
 }
 
 
-function affichageDefi(){
+function affichageDefi() {
     containerDefi.innerHTML = ''
     let div = ''
-    defis.forEach(ele=>{
-        
-       div += divDefi(ele)
+    defis.forEach(ele => {
+        div += divDefi(ele)
     })
-    
+
 
     containerDefi.innerHTML = div
 }
-affichageDefi()
+
 
 
 
 // Ajouter Defi
 
 let form = document.forms.formDefi
+let statusDeForm = document.querySelector(".statusDeForm")
+let defiAjout;
 
+function validation() {
+    let nom = form.defi.value
+    let sport = form.sport.value
+    let objectif = form.objectif.value
+    let dateFin = form.dateFin.value
+    let description = form.description.value
+    let image = form.image.value
 
-// validation()
+    if(nom == "" || sport == "" || objectif == "" || dateFin == "" || description == ""|| image ==""){
+        document.querySelector(".statusDeForm").classList.add("bg-red-300") 
+        document.querySelector(".statusDeForm").textContent= "invalid Input"
+        return false
+    }
+    else {
+        statusDeForm.classList.remove("bg-red-300")
+        document.querySelector(".statusDeForm").textContent= ""
+        defiAjout = {
+            id: config.id++,
+            nom : nom,
+            sport: sport,
+            descreption: description,
+            image:image,
+            target: objectif,
+            datefine: dateFin
+        }
+        config.id +=1
+        return true
+    }
+}
+// console.log(validation())
+
+let btn = document.querySelector(".btn")
+function ajouterDefi(){
+    
+        document.querySelector(".btnAjout").addEventListener('click',e=>{
+            e.preventDefault()
+            
+                if(validation() == true){
+                    defis.push(defiAjout)
+                    affichageDefi()
+                    console.log(defis)
+                }
+
+                form.reset()
+        })
+    
+}
+ajouterDefi()
