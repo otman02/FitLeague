@@ -1,0 +1,16 @@
+{
+	"folders": [
+		{
+			"name": "assets",
+			"path": "../../prototype/assets"
+		},
+		{
+			"name": "FitLeague",
+			"path": ".."
+		}
+	],
+	"settings": {
+		"liveServer.settings.port": 5501,
+		"liveServer.settings.multiRootWorkspaceName": "FitLeague"
+	}
+}
