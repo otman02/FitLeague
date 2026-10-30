@@ -131,27 +131,34 @@
     </div>
 
 
-    <div class="popUp">
-        <div class="ajouterDefi">
-            <div class="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center hidden" id="nvdefi">
-                <div class=" relativen bg-white w-full max-w-md p-6 rounded-3xl shadow-xl"> <button id="closeDefi"
+            <div class="ajouterDefi popUp fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center overflowy-autoscroll hidden" id="nvdefi">
+                <div class=" overflow-auto relative bg-white w-full max-w-md p-6 rounded-3xl shadow-xl"> <button id="closeDefi"
                         class="relative bottom-5 bg-red-500 rounded-xl p-1 w-10 text-white">X</button>
                     <h2 class="text-2xl font-bold mb-4">créer un defi</h2>
-                    <form id="formDefi" class="flex flex-col gap-5 ">
+                    <form name="formDefi" class="flex flex-col gap-5 ">
                         <label for="nomDefi">Nom de defi</label><input required type="text"
                             class="border rounded-md py-2 px-4" id="nomDefi" name="defi" placeholder="Nom de defi">
+                            
                         <label for="sport">Sport</label><input required type="text" class="border rounded-md py-2 px-4"
                             id="sport" placeholder="Ex: Footbal">
-                        <label for="description">Description</label><input required type="text"
-                            class="border rounded-md py-2 px-4" id="description" placeholder="Description">
+                            
+                        <label for="objectif">objectif</label><input required type="text" class="border rounded-md py-2 px-4"
+                            id="objectif" placeholder="Objectif de defi">
+                            
+                        <label for="dateFin">Date fin</label><input required type="date" class="border rounded-md py-2 px-4"
+                            id="sport" >
+                        
+                        <label for="description">Description</label><textarea required 
+                            class="border rounded-md py-2 px-4" id="description" placeholder="Description"></textarea>
+                           
                         <label for="photoDefi">Photo du defi</label><input required type="file"
                             class="file:mr-3 file:py-2 file:px-4 file:border-0 hover:file:bg-green-900 text-balck text-sm border rounded-md file:bg-black file:text-white shadow-xl"
                             id="photoDefi">
-                        <button class="bg-green-900 rounded-xl p-1 text-[#fff]">Creer le defi</button>
+                            
+                        <button class="bg-green-900 rounded-xl p-1 text-[#fff]" type="submit">Creer le defi</button>
                     </form>
                 </div>
-            </div>
-        </div>
+            
     </div>
 
 
@@ -188,13 +195,6 @@
 
             <section>
 
-
-                <!-- <div class="w-50 bg-gray-300 h-15 rounded-md border shadow-md">
-                <div class="flex gap-5 items-center"><img src="assets/spider-man-5120x2880-21603.jpg"
-                        class="w-10 h-10 rounded-full object-cover mt-2 ml-2" alt="otman">
-                    <p>2 otman</p>
-                </div>
-            </div> -->
                 <div class="flex justify-center align-center h-20 gap-3 ">
                     <label for="searchDefi"><i class="fa-solid fa-magnifying-glass "></i></label>
                     <input type="text" name="" id="" class="border rounded-sm px-2 h-10" placeholder="Rechercher">
@@ -204,90 +204,9 @@
                         <option vlaue="sport">swimming</option>
                     </select>
                 </div>
-                <div class="conatiner flex justify-center gap-20 flex-wrap">
-                    <div class="max-w-sm rounded overflow-hidden shadow-lg">
-                        <img class="w-full h-56 object-cover" src="assets/push-up.webp" alt="Push-Up Exercise">
-                        <div class="px-6 py-4">
-                            <div class="font-bold text-xl mb-2">Push-Up</div>
-                            <span
-                                class="inline-block bg-gray-200 rounded-full px-3 py-1 text-md font-semibold text-gray-700 mr-2 mb-2">Objectif
-                                50 km</span>
-                            <span
-                                class="inline-block bg-gray-200 rounded-full px-3 py-1 text-md font-semibold text-gray-700 mr-2 mb-2">fin
-                                date: 2026-14-02</span>
-                            <p class="text-gray-700 text-base">
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla!
-                                Maiores et perferendis eaque, exercitationem praesentium nihil.
-                            </p>
-
-                            <button
-                                class=" bg-gray-200 rounded-full px-3 py-1 text-md text-blue-700 mt-4 cursor-pointer">
-                                <i class="fa-solid fa-pen-to-square"></i>
-                            </button>
-
-
-                            <button
-                                class=" bg-gray-200 rounded-full px-3 py-1 text-md text-red-700 mt-4 cursor-pointer">
-                                <i class="fa-solid fa-trash"></i>
-                            </button>
-                            <button
-                                class=" bg-gray-200 rounded-full px-3 py-1 text-md text-green-700 mt-4 cursor-pointer">
-                                Inscrir
-                                <i class="fa-solid fa-person-circle-plus"></i>
-                            </button>
-                            <span id="status" class=" bg-green-200 rounded-full px-3 py-1 text-md text-green-700 mt-4 ">
-                                Actif
-                                <i class="fa-solid fa-check"></i>
-                            </span>
-                            <button data-defi="Push-Up"
-                                class="btn-show-top3 w-full bg-green-600 text-white py-2 rounded-md cursor-pointer mt-4">
-                                Voir le Top 3
-                            </button>
-
-
-                        </div>
-                    </div>
-                    <div class="max-w-sm rounded overflow-hidden shadow-lg">
-                        <img class="w-full h-56 object-cover" src="assets/swimming.webp" alt="Push-Up Exercise">
-
-                        <div class="px-6 py-4">
-                            <div class="font-bold text-xl mb-2">Push-Up</div>
-                            <span
-                                class="inline-block bg-gray-200 rounded-full px-3 py-1 text-md font-semibold text-gray-700 mr-2 mb-2">Objectif
-                                50 km</span>
-                            <span
-                                class="inline-block bg-gray-200 rounded-full px-3 py-1 text-md font-semibold text-gray-700 mr-2 mb-2">fin
-                                date: 2026-14-02</span>
-                            <p class="text-gray-700 text-base">
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla!
-                                Maiores et perferendis eaque, exercitationem praesentium nihil.
-                            </p>
-                            <button
-                                class=" bg-gray-200 rounded-full px-3 py-1 text-md text-blue-700 mt-4 cursor-pointer">
-                                <i class="fa-solid fa-pen-to-square"></i>
-                            </button>
-
-                            <button
-                                class=" bg-gray-200 rounded-full px-3 py-1 text-md text-red-700 mt-4 cursor-pointer">
-                                <i class="fa-solid fa-trash"></i>
-                            </button>
-
-                            <button
-                                class=" bg-gray-200 rounded-full px-3 py-1 text-md text-green-700 mt-4 cursor-pointer">
-                                Inscrir
-                                <i class="fa-solid fa-person-circle-plus"></i>
-                            </button>
-                            <span id="status" class=" bg-green-200 rounded-full px-3 py-1 text-md text-green-700 mt-4">
-                                Actif
-                                <i class="fa-solid fa-check"></i>
-                            </span>
-                            <button 
-                                class="btn-show-top3 w-full bg-green-600 text-white py-2 rounded-md cursor-pointer mt-4">
-                                Voir le Top 3
-                            </button>
-
-                        </div>
-                    </div>
+                <div class="conatinerDefi flex justify-center gap-20 flex-wrap">
+                    
+                    
                 </div>
             </section>
             <section id="top3-container"
@@ -317,70 +236,11 @@
                 </div>
             </section>
 
-            <!-- <section class="bg-white rounded-md h-30 flex justify-around items-center gap-5 border">
-                <div class="w-70 ">
-                    <p>classement génerale</p>
-                    <h1 class="text-2xl font-bold">chompions de la ligue</h1>
-                    <p>Le plus grand nombre de premières places remporte le classement</p>
-                </div>
-                <div class="w-50 bg-yellow-400 h-15 rounded-md border shadow-md">
-                    <div class="flex gap-5 items-center"><img src="assets/marvels-spider-man-3840x2160-11990.jpeg "
-                            class="w-10 h-10 rounded-full object-cover mt-2 ml-2" alt="otman">
-                        <p>1 otman </p>
-                    </div>
-                </div>
-                <div class="w-50 bg-gray-300 h-15 rounded-md border shadow-md">
-                    <div class="flex gap-5 items-center"><img src="assets/spider-man-5120x2880-21603.jpg"
-                            class="w-10 h-10 rounded-full object-cover mt-2 ml-2" alt="otman">
-                        <p>2 otman</p>
-                    </div>
-                </div>
-                <div class="w-50 bg-orange-300 h-15 rounded-md border shadow-md">
-                    <div class="flex gap-5 items-center "><img src="assets/spider-man-marvel-6000x4000-11025.jpg"
-                            class="w-10 h-10 rounded-full object-cover mt-2 ml-2" alt="otman">
-                        <p>3 otman</p>
-                    </div>
-                </div>
-
-
-            </section> -->
-
-
-            <!-- <section class=" mb-4 flex flex-col gap-3">
-                <div class="flex-col ">
-                    <p>defis en coure</p>
-                    <p class="text-2xl font-bold"> votre ligue</p>
-                </div>
-
-                <div class="flex gap-20">
-                    <div class="h-20 w-120 bg-white rounded-md border shadow-md px-3">
-                        <div class="flex gap-5 items-center"><img src="assets/marvels-spider-man-3840x2160-11990.jpeg"
-                                alt="" class="w-10 h-10 rounded-full object-cover">
-                            <div>
-                                <p>objectif 50km</p>
-                                <p> course a peid.en coure</p>
-                                <p> par lee martin</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="h-20 w-120 bg-white  rounded-md border shadow-md px-3">
-                        <div class="flex gap-5 items-center"><img src="assets/spider-man-5120x2880-21603.jpg" alt=""
-                                class="w-10 h-10 rounded-full object-cover">
-                            <div>
-                                <p>objectif 50km</p>
-                                <p> course a peid.en coure</p>
-                                <p> par lee martin</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section> -->
-
         </main>
 
-
-
         <script src="js/main.js"></script>
+        <script src="js/defiData.js"></script>
+        <script src="js/gestionDefi.js"></script>
 </body>
 
 </html>
