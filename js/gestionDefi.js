@@ -1,6 +1,7 @@
 let config = {
     id : 0
 }
+
 let containerDefi = document.querySelector(".conatinerDefi")
 affichageDefi()
 
@@ -63,6 +64,8 @@ function affichageDefi() {
 
 
 
+// Ajouter Defi
+
 let form = document.forms.formDefi
 let statusDeForm = document.querySelector(".statusDeForm")
 let defiAjout;
@@ -82,8 +85,7 @@ function validation() {
     }
     else {
         statusDeForm.classList.remove("bg-red-300")
-        document.querySelector(".statusDeForm").classList.add("bg-green-300") 
-        document.querySelector(".statusDeForm").textContent= "valid Input"
+        document.querySelector(".statusDeForm").textContent= ""
         defiAjout = {
             id: config.id++,
             nom : nom,

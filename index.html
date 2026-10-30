@@ -13,143 +13,354 @@
 
 </head>
 
-<body class="max-w-250 m-auto  flex flex-col justify-between gap-20 bg-amber-50">
-    <header class="flex justify-between  bg-green-500 pl-4 pr-4  content-center items-center rounded-md h-15 shadow-xl">
-        <div class="flex justify-between gap-5">
-            <div class="bg-yellow-500 h-7 w-7 flex items-center justify-center rounded-sm"><i
-                    class="fa-solid fa-bolt  "></i></div>
-            <h1>fitleague</h1>
+<body class="max-w-250 m-auto bg-amber-50 relative  flex flex-col justify-between gap-15">
+    <div class="tableaubord ">
+        <header
+            class="flex justify-between  bg-green-500 pl-4 pr-4  content-center items-center rounded-md h-15 shadow-xl">
+            <div class="flex justify-between gap-5">
+                <div class="bg-yellow-500 h-7 w-7 flex items-center justify-center rounded-sm"><i
+                        class="fa-solid fa-bolt  "></i></div>
+                <h1>fitleague</h1>
+            </div>
+            <ul class="flex justify-between gap-20">
+                <il class="bg-green-800 rounded-md w-30 h-8 flex justify-center items-center "><button>tableau de
+                        bord
+                    </button></il>
+                <il><button><i class="fa-solid fa-trophy"> </i>defis</button></il>
+                <il><button><i class="fa-solid fa-user-group"></i>participantes</button></il>
+            </ul>
+        </header>
+        <main class="flex flex-col justify-between gap-20">
+            <section class="flex justify-between">
+                <div>
+                    <h1 class="text-2xl font-bold">Tableau de bord</h1>
+                    <p>Les informations importantes en un coup d’œil.</p>
+
+                </div>
+
+
+            </section>
+
+            <section class="flex justify-between">
+                <div class="w-80 bg-white h-15 flex items-center rounded-md gap-5  px-2 shadow-xl">
+                    <div class="bg-yellow-500 h-7 w-7 flex items-center justify-center rounded-sm"><i
+                            class="fa-solid fa-trophy"> </i> </div>
+                    <div class="flex flex-col justify-center">
+                        <div>2 </div>
+                        <p>defis totale</p>
+                    </div>
+                </div>
+                <div class="w-80 bg-white h-15 flex items-center rounded-md gap-5  px-2 shadow-xl">
+                    <div class="bg-yellow-500 h-7 w-7 flex items-center justify-center rounded-sm"><i
+                            class="fa-solid fa-user-group"></i></div>
+                    <div class="flex flex-col justify-center">
+                        <div>4</div>
+                        <p> participantes</p>
+                    </div>
+                </div>
+                <div class="w-80 bg-white h-15 flex items-center rounded-md gap-5  px-2 shadow-xl">
+                    <div class="bg-yellow-500 h-7 w-7 flex items-center justify-center rounded-sm"><i
+                            class="fa-solid fa-bolt  "></i></div>
+                    <div class="flex flex-col justify-center">
+                        <div>2 </div>
+                        <p>defis actifs</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="bg-white rounded-md h-30 flex justify-around items-center gap-5 shadow-xl">
+                <div class="w-70 ">
+                    <p>classement génerale</p>
+                    <h1 class="text-2xl font-bold">chompions de la ligue</h1>
+                    <p>Le plus grand nombre de premières places remporte le classement</p>
+                </div>
+                <div class="w-50 bg-yellow-400 h-15 rounded-md  shadow-md">
+                    <div class="flex gap-5 items-center"><img src="assets/marvels-spider-man-3840x2160-11990.jpeg "
+                            class="w-10 h-10 rounded-full object-cover mt-2 ml-2" alt="otman">
+                        <p>1 otman </p>
+                    </div>
+                </div>
+                <div class="w-50 bg-gray-300 h-15 rounded-md  shadow-md">
+                    <div class="flex gap-5 items-center"><img src="assets/spider-man-5120x2880-21603.jpg"
+                            class="w-10 h-10 rounded-full object-cover mt-2 ml-2" alt="otman">
+                        <p>2 otman</p>
+                    </div>
+                </div>
+                <div class="w-50 bg-orange-300 h-15 rounded-md  shadow-md">
+                    <div class="flex gap-5 items-center "><img src="assets/spider-man-marvel-6000x4000-11025.jpg"
+                            class="w-10 h-10 rounded-full object-cover mt-2 ml-2" alt="otman">
+                        <p>3 otman</p>
+                    </div>
+                </div>
+
+
+            </section>
+
+
+            <section class=" mb-4 flex flex-col gap-3">
+                <div class="flex-col ">
+                    <p>defis en coure</p>
+                    <p class="text-2xl font-bold"> votre ligue</p>
+                </div>
+
+
+                <div class="flex gap-20">
+                    <div class="h-20 w-120 bg-white rounded-md  shadow-md px-3 shadow-xl">
+                        <div class="flex gap-5 items-center"><img src="assets/marvels-spider-man-3840x2160-11990.jpeg"
+                                alt="" class="w-10 h-10 rounded-full object-cover">
+                            <div>
+                                <p>objectif 50km</p>
+                                <p> course a peid.en coure</p>
+                                <p> par lee martin</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="h-20 w-120 bg-white  rounded-md  shadow-md px-3 shadow-xl">
+                        <div class="flex gap-5 items-center"><img src="assets/spider-man-5120x2880-21603.jpg" alt=""
+                                class="w-10 h-10 rounded-full object-cover">
+                            <div>
+                                <p>objectif 50km</p>
+                                <p> course a peid.en coure</p>
+                                <p> par lee martin</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+
+    <div class="ajouterDefi popUp fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center hidden"
+        id="nvdefi">
+        <div class="  bg-white w-full max-w-md p-6 rounded-3xl shadow-xl"> <button id="closeDefi"
+                class=" bottom-5 bg-red-500 rounded-xl p-1 w-10 text-white cursor-pointer">X</button>
+            <h2 class="text-2xl font-bold mb-4">créer un defi</h2>
+            <form name="formDefi" class="flex flex-col gap-5 ">
+                <div class="statusDeForm  rounded-md text-center py-2"></div>
+                <label for="nomDefi">Nom de defi</label>
+                <input required type="text" class="border rounded-md py-2 px-4" id="nomDefi" name="defi"
+                    placeholder="Nom de defi">
+
+                <label for="sport">Sport</label>
+                <input required type="text" class="border rounded-md py-2 px-4" name="sport" placeholder="Ex: Footbal">
+
+                <label for="objectif">objectif</label>
+                <input required type="text" class="border rounded-md py-2 px-4" name="objectif"
+                    placeholder="Objectif de defi">
+
+                <label for="dateFin">Date fin</label>
+                <input required type="date" class="border rounded-md py-2 px-4" name="dateFin">
+
+                <label for="description">Description</label><textarea required name="description"
+                    class="border rounded-md py-2 px-4" id="description" placeholder="Description"></textarea>
+
+                <label for="photoDefi">Photo du defi</label>
+                <input required type="file"
+                    class="file:mr-3 file:py-2 file:px-4 file:border-0 hover:file:bg-green-900 text-balck text-sm border rounded-md file:bg-black file:text-white shadow-xl"
+                    name="image">
+
+                <button class="bg-green-900 rounded-xl p-1 text-[#fff] btnAjout">Creer le defi</button>
+            </form>
         </div>
-        <ul class="flex justify-between gap-20">
-            <il class="bg-green-800 rounded-md w-30 h-8 flex justify-center items-center border"><button>tableau de bord
-                </button></il>
-            <il><button><i class="fa-solid fa-trophy"> </i>defis</button></il>
-            <il><button><i class="fa-solid fa-user-group"></i>participantes</button></il>
-        </ul>
-    </header>
+
+    </div>
+
+
+
+
+    <main id="pageDefi" class="">
+        <header
+            class="flex justify-between  bg-green-500 pl-4 pr-4  content-center items-center rounded-md h-15 shadow-xl ">
+            <div class="flex justify-between gap-5">
+                <div class="bg-yellow-500 h-7 w-7 flex items-center justify-center rounded-sm"><i
+                        class="fa-solid fa-bolt  "></i></div>
+                <h1>fitleague</h1>
+            </div>
+            <ul class="flex justify-between gap-20">
+                <il><button>tableau de bord
+                    </button></il>
+                <il class="bg-green-800 rounded-md w-30 h-8 flex justify-center items-center "><button><i
+                            class="fa-solid fa-trophy"> </i>defis</button></il>
+                <il><button><i class="fa-solid fa-user-group"></i>participantes</button></il>
+            </ul>
+        </header>
+    </main>
     <main class="flex flex-col justify-between gap-20">
         <section class="flex justify-between">
             <div>
-                <h1 class="text-2xl font-bold">Tableau de bord</h1>
-                <p>Les informations importantes en un coup d’œil.</p>
+                <h1 class="text-2xl font-bold">Gestion des défis</h1>
+                <p>Choisissez un défi pour voir ses scores.</p>
 
             </div>
-            <button id="new-defis" class="bg-green-800 w-30 h-10 rounded-sm border">
-                <p>+ nouveau dfis</p>
+            <button id="new-defis" class="bg-green-800 w-30 h-10 rounded-sm  shadow-xl">
+                <p class="cursor-pointer">+ nouveau dfis</p>
             </button>
 
         </section>
 
-        <section class="flex justify-between">
-            <div class="w-80 bg-white h-15 flex items-center rounded-md gap-5 border px-2">
-                <div class="bg-yellow-500 h-7 w-7 flex items-center justify-center rounded-sm"><i
-                        class="fa-solid fa-trophy"> </i> </div>
-                <div class="flex flex-col justify-center">
-                    <div>2 </div>
-                    <p>defis totale</p>
+        <section>
+
+            <div class="flex justify-center align-center h-20 gap-3 ">
+                <label for="searchDefi"><i class="fa-solid fa-magnifying-glass "></i></label>
+                <input type="text" name="" id="" class="border rounded-sm px-2 h-10" placeholder="Rechercher">
+                <select name="filter" id="" class="h-10 border rounded-md">
+                    <option value="">Choisissez</option>
+                    <option vlaue="sport">Push-Up</option>
+                    <option vlaue="sport">swimming</option>
+                </select>
+            </div>
+            <div class="conatinerDefi flex justify-center gap-20 flex-wrap">
+
+
+            </div>
+        </section>
+        <section id="top3-container"
+            class="hidden mt-10 bg-white p-6 rounded-md shadow-lg border border-gray-200 max-w-2xl mx-auto w-full">
+            <div class="flex justify-between items-center mb-4 border-b pb-2">
+                <h2 class="text-2xl font-bold text-gray-800">Classement : <span id="defi-title-display"
+                        class="text-blue-600">Nom du Defi</span></h2>
+                <button id="close-top3"
+                    class="text-red-500 hover:text-red-700 font-bold text-xl cursor-pointer">X</button>
+            </div>
+
+            <div class="flex flex-col gap-3">
+                <div class="flex justify-between items-center bg-yellow-100 p-3 rounded-md border border-yellow-300">
+                    <span class="font-bold text-lg text-yellow-700">🥇 1. Yassine</span>
+                    <span class="font-bold text-green-700">45 km</span>
+                </div>
+                <div class="flex justify-between items-center bg-gray-100 p-3 rounded-md border border-gray-300">
+                    <span class="font-bold text-lg text-gray-600">🥈 2. Amine</span>
+                    <span class="font-bold text-green-700">30 km</span>
+                </div>
+                <div class="flex justify-between items-center bg-orange-100 p-3 rounded-md border border-orange-300">
+                    <span class="font-bold text-lg text-orange-700">🥉 3. Sara</span>
+                    <span class="font-bold text-green-700">15 km</span>
                 </div>
             </div>
-            <div class="w-80 bg-white h-15 flex items-center rounded-md gap-5 border px-2 ">
-                <div class="bg-yellow-500 h-7 w-7 flex items-center justify-center rounded-sm"><i
-                        class="fa-solid fa-user-group"></i></div>
-                <div class="flex flex-col justify-center">
-                    <div>4</div>
-                    <p> participantes</p>
-                </div>
-            </div>
-            <div class="w-80 bg-white h-15 flex items-center rounded-md gap-5 border px-2">
+        </section>
+
+    </main>
+
+
+
+    <main id="participantes" class="flex flex-col gap-15">
+        <header
+            class="flex justify-between  bg-green-500 pl-4 pr-4  content-center items-center rounded-md h-15 shadow-xl mt-5">
+            <div class="flex justify-between gap-5">
                 <div class="bg-yellow-500 h-7 w-7 flex items-center justify-center rounded-sm"><i
                         class="fa-solid fa-bolt  "></i></div>
-                <div class="flex flex-col justify-center">
-                    <div>2 </div>
-                    <p>defis actifs</p>
-                </div>
+                <h1 class="font-bold">fitleague</h1>
             </div>
-        </section>
+            <ul class="flex justify-between gap-20">
+                <il class="  w-30 h-8 flex justify-center items-center "><button>tableau de
+                        bord
+                    </button></il>
+                <il><button><i class="fa-solid fa-trophy"> </i>defis</button></il>
+                <il class="bg-green-800  rounded-md"><button><i
+                            class=" fa-solid fa-user-group"></i>participantes</button></il>
+            </ul>
+        </header>
 
-        <section class="bg-white rounded-md h-30 flex justify-around items-center gap-5 border">
-            <div class="w-70 ">
-                <p>classement génerale</p>
-                <h1 class="text-2xl font-bold">chompions de la ligue</h1>
-                <p>Le plus grand nombre de premières places remporte le classement</p>
-            </div>
-            <div class="w-50 bg-yellow-400 h-15 rounded-md border shadow-md">
-                <div class="flex gap-5 items-center"><img src="assets/marvels-spider-man-3840x2160-11990.jpeg "
-                        class="w-10 h-10 rounded-full object-cover mt-2 ml-2" alt="otman">
-                    <p>1 otman </p>
-                </div>
-            </div>
-            <div class="w-50 bg-gray-300 h-15 rounded-md border shadow-md">
-                <div class="flex gap-5 items-center"><img src="assets/spider-man-5120x2880-21603.jpg"
-                        class="w-10 h-10 rounded-full object-cover mt-2 ml-2" alt="otman">
-                    <p>2 otman</p>
-                </div>
-            </div>
-            <div class="w-50 bg-orange-300 h-15 rounded-md border shadow-md">
-                <div class="flex gap-5 items-center "><img src="assets/spider-man-marvel-6000x4000-11025.jpg"
-                        class="w-10 h-10 rounded-full object-cover mt-2 ml-2" alt="otman">
-                    <p>3 otman</p>
-                </div>
-            </div>
-
-
-        </section>
-
-
-        <section class=" mb-4 flex flex-col gap-3">
-            <div class="flex-col ">
-                <p>defis en coure</p>
-                <p class="text-2xl font-bold"> votre ligue</p>
-            </div>
-
-
-            <div class="flex gap-20">
-                <div class="h-20 w-120 bg-white rounded-md border shadow-md px-3">
-                    <div class="flex gap-5 items-center"><img src="assets/marvels-spider-man-3840x2160-11990.jpeg"
-                            alt="" class="w-10 h-10 rounded-full object-cover">
-                        <div>
-                            <p>objectif 50km</p>
-                            <p> course a peid.en coure</p>
-                            <p> par lee martin</p>
-                        </div>
+        <section class="flex gap-8 flex-col">
+            <h1 class="font-bold bg-yellow-200 w-40 h-10 rounded-xl flex justify-center items-center shadow-xl">les
+                participantes</h1>
+            <div class="flex gap-8">
+                <div class="flex gap-15 justify-center items-center w-90 h-25 bg-green-600 rounded-md shadow-xl">
+                    <div><img src="assets/marvels-spider-man-3840x2160-11990.jpeg" alt="otman"
+                            class="w-10 h-10 rounded-full object-cover mt-2 ml-2"></div>
+                    <div>
+                        <p class="font-bold">otman hannoun</p>
+                        <p>mrxma</p>
+                    </div>
+                    <div class="flex flex-col gap-2"><button class="bg-yellow-200 rounded-md cursor-pointer"><i
+                                class="fa-solid fa-pen-to-square"></i></button><button
+                            class="bg-red-500 rounded-md cursor-pointer"><i
+                                class="fa-solid fa-trash"></i></button><button
+                            class="bg-green-100 cursor-pointer rounded-md"><i class="fa-solid fa-eye"></i></button>
                     </div>
                 </div>
-                <div class="h-20 w-120 bg-white  rounded-md border shadow-md px-3">
-                    <div class="flex gap-5 items-center"><img src="assets/spider-man-5120x2880-21603.jpg" alt=""
-                            class="w-10 h-10 rounded-full object-cover">
-                        <div>
-                            <p>objectif 50km</p>
-                            <p> course a peid.en coure</p>
-                            <p> par lee martin</p>
-                        </div>
+                <div class="flex gap-15 justify-center items-center w-90 h-25  bg-green-600 rounded-md shadow-xl">
+                    <div><img src="assets/marvels-spider-man-3840x2160-11990.jpeg" alt="otman"
+                            class="w-10 h-10 rounded-full object-cover mt-2 ml-2"></div>
+                    <div>
+                        <p class="font-bold">otman hannoun</p>
+                        <p>mrxma</p>
+                    </div>
+                    <div class="flex flex-col gap-2"><button class="bg-yellow-200 rounded-md cursor-pointer"><i
+                                class="fa-solid fa-pen-to-square"></i></button><button
+                            class="bg-red-500 rounded-md cursor-pointer"><i
+                                class="fa-solid fa-trash"></i></button><button
+                            class="bg-green-100 cursor-pointer rounded-md"><i class="fa-solid fa-eye"></i></button>
+                    </div>
+                </div>
+                <div class="flex gap-15 justify-center items-center w-90 h-25  bg-green-600 rounded-md shadow-xl">
+                    <div><img src="assets/marvels-spider-man-3840x2160-11990.jpeg" alt="otman"
+                            class="w-10 h-10 rounded-full object-cover mt-2 ml-2"></div>
+                    <div>
+                        <p class="font-bold">otman hannoun</p>
+                        <p>mrxma</p>
+
+                    </div>
+                    <div class="flex flex-col gap-2"><button class="bg-yellow-200 rounded-md cursor-pointer"><i
+                                class="fa-solid fa-pen-to-square"></i></button><button
+                            class="bg-red-500 rounded-md cursor-pointer"><i
+                                class="fa-solid fa-trash"></i></button><button
+                            class="bg-green-100 cursor-pointer rounded-md"><i class="fa-solid fa-eye"></i></button>
                     </div>
                 </div>
             </div>
+
         </section>
 
 
 
     </main>
 
-    <div class="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center hidden" id="nvdefi">
-        <div class=" relativen bg-white w-full max-w-md p-6 rounded-3xl shadow-xl"> <button id="close"
-                class="relative bottom-5 bg-red-500 rounded-xl p-1 w-10 text-white">X</button>
-            <h2 class="text-2xl font-bold mb-4">créer un defi</h2>
-            <form id="formDefi"  class="flex flex-col gap-5 ">
-                <label for="nomDefi">Nom de defi</label><input required type="text" 
-                class="border rounded-md py-2 px-4" id="nomDefi" name="defi" placeholder="Nom de defi">
-                <label for="sport">Sport</label><input required type="text" class="border rounded-md py-2 px-4" id="sport" placeholder="Ex: Footbal">
-                <label for="description">Description</label><input required type="text" class="border rounded-md py-2 px-4" id="description" placeholder="Description">
-                <label for="photoDefi">Photo du defi</label><input required type="file"
-                class="file:mr-3 file:py-2 file:px-4 file:border-0 hover:file:bg-green-900 text-balck text-sm border rounded-md file:bg-black file:text-white shadow-xl" id="photoDefi">
+    <footer class="h-56 bg-yellow-100 mt-5 flex justify-between rounded-xl ">
+        <div class=" flex flex-col w-70 justify-between gap-3  ml-5 mt-4">
+            <div class="flex   gap-5  rounded-md w-30 h-10 justify-center items-center  ">
+                <div class="bg-yellow-500 h-7 w-7 flex items-center justify-center rounded-sm"><i
+                        class="fa-solid fa-bolt  "></i></div>
+                <h1 class="font-bold">fitleague</h1>
+            </div>
+            <p>Nous offrons un cadre permettant aux amis de s'affronter et de passer un bon moment ensemble.</p>
+            <p>visete-nous</p>
+            <div class="flex gap-2 ">
+                <i class="fa-brands fa-square-facebook"></i>
+                <i class="fa-brands fa-square-instagram"></i>
+                <i class="fa-brands fa-square-x-twitter"></i>
+            </div>
 
-                <button class="bg-green-900 rounded-xl p-1 text-[#fff]">Creer le defi</button>
-
-            </form>
         </div>
-    </div>
+
+        <div class="mt-5">
+            <ul class="flex flex-col justify-between gap-8">
+                <il class=" rounded-md"><button>tableau de bord
+                    </button></il>
+                <il class="bg-amber-300 rounded-md w-30 h-8 flex justify-center items-center "><button><i
+                            class="fa-solid fa-trophy"> </i>defis</button></il>
+                <il class=" rounded-md"><button><i class="fa-solid fa-user-group"></i>participantes</button></il>
+            </ul>
+
+        </div>
+
+        <div class="flex flex-col gap-5 w-70 mt-5">
+            <p>Profitez bien du temps passé avec votre ami(e) ; on ne sait jamais quand cela prendra fin. Le temps est
+                inestimable, alors profitez-en dès maintenant. Pour toute question, contactez-nous.
+            </p>
+            <div class=" flex gap-15 justify-center items-center">
+                <i class="fa-solid fa-phone"> </i>
+                <p>0604922153</p>
+            </div>
+
+        </div>
+
+    </footer>
 
     <script src="js/main.js"></script>
+    <script src="js/defiData.js"></script>
+    <script src="js/gestionDefi.js"></script>
 </body>
 
 </html>
