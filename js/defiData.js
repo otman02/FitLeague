@@ -1,51 +1,46 @@
  let defis= [
     { 
         id : 1,
+        nom : "Defi De Ahmed",
         sport : "beycecl-race" ,
         descreption : "petite race with bycecl",
-        status: "encours",
-        image: "assets/cyclists.webp",
-        target: "hh",
-        datedebut:"30-10-2026",
-        datefine: "2-11-2026"
+        image: "assets/bicycle.webp",
+        target: "80Km",
+        datefine: "2026-12-22"
     },
     {   id : 2,
+        nom : "Defi De Ahmed",
         sport : "push-up",
         descreption : "push up context",
-        status: "encours",
+
         image: "assets/push-up.webp",
-        target: "hh",
-        datedebut:"30-10-2026",
-        datefine: "2-11-2026"
+        target: "150",
+        datefine: "2026-03-05"
     },
     {   id : 3,
+        nom : "Defi De Ahmed",
         sport : "swimmig",
         descreption : "swimming challange",
-        status: "encours",
         image: "assets/swimming.webp",
-        target: "hh",
-        datedebut:"30-10-2026",
-        datefine: "2-11-2026"
+        target: "150m",
+        datefine: "2026-11-14"
     },
     {   
         id : 4,
+        nom : "Defi De Ahmed",
         sport : "walking ",
         descreption : "walking march",
-        status: "encours",
         image: "assets/walk.webp",
-        target: "hh",
-        datedebut:"30-10-2026",
-        datefine: "2-11-2026"
+        target: "10Km",
+        datefine: "2026-10-31"
     },
     {   id : 5,
+        nom : "Defi De Ahmed",
         sport : "running",
         descreption : "a race ",
-
-        status: "encours",
         image: "assets/running.webp",
-        target: "hh",
-        datedebut:"30-10-2026",
-        datefine: "2-11-2026"
+        target: "15Km",
+        datefine: "2026-09-15"
     }
 
 ]
