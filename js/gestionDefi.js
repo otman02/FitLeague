@@ -1,9 +1,15 @@
 let config = {
-    id : 0
+    id : 6
 }
 
 let containerDefi = document.querySelector(".conatinerDefi")
+let btn = document.querySelector(".btn")
+let form = document.forms.formDefi
+let statusDeForm = document.querySelector(".statusDeForm")
+let defiAjout;
+
 affichageDefi()
+ajouterDefi()
 
 
 function divDefi(defi) {
@@ -14,7 +20,7 @@ function divDefi(defi) {
         status = 'terminer'
     }
     return `
-        <div class="max-w-sm rounded overflow-hidden shadow-lg mb-4" data-id-defi="${defi.id}">
+        <div class="max-w-sm rounded overflow-hidden shadow-lg mb-4 defi" data-id-defi="${defi.id}">
             <img class="w-md h-56 object-cover" src="${defi.image}" alt="${defi.sport}">
             <div class="px-6 py-4">
             <div class="font-bold text-xl mb-2">Nom:<span class="text-orange-600">${defi.nom}</span></div>
@@ -34,7 +40,7 @@ function divDefi(defi) {
                 </button>
                 <button 
                     class="deleteDefi bg-gray-200 rounded-full px-3 py-1 text-md text-red-700 mt-4 cursor-pointer">
-                    <i class="fa-solid fa-trash"></i>
+                    <i class="deleteDefi fa-solid fa-trash"></i>
                 </button>
                 <button
                     class="inscririPartc bg-gray-200 rounded-full px-3 py-1 text-md text-green-700 mt-4 cursor-pointer">
@@ -56,9 +62,9 @@ function affichageDefi() {
     defis.forEach(ele => {
         div += divDefi(ele)
     })
-
-
     containerDefi.innerHTML = div
+    
+    supprimerDefi()
 }
 
 
@@ -66,9 +72,7 @@ function affichageDefi() {
 
 // Ajouter Defi
 
-let form = document.forms.formDefi
-let statusDeForm = document.querySelector(".statusDeForm")
-let defiAjout;
+
 
 function validation() {
     let nom = form.defi.value
@@ -87,11 +91,11 @@ function validation() {
         statusDeForm.classList.remove("bg-red-300")
         document.querySelector(".statusDeForm").textContent= ""
         defiAjout = {
-            id: config.id++,
+            id: config.id,
             nom : nom,
             sport: sport,
             descreption: description,
-            image:image,
+            image:form.image.src,
             target: objectif,
             datefine: dateFin
         }
@@ -99,9 +103,8 @@ function validation() {
         return true
     }
 }
-// console.log(validation())
 
-let btn = document.querySelector(".btn")
+
 function ajouterDefi(){
     
         document.querySelector(".btnAjout").addEventListener('click',e=>{
@@ -110,11 +113,30 @@ function ajouterDefi(){
                 if(validation() == true){
                     defis.push(defiAjout)
                     affichageDefi()
+                    window.alert("Le defi cree avec succee!")
+                    document.getElementById("nvdefi").classList.add("hidden")
                     console.log(defis)
-                }
-
-                form.reset()
+                    form.reset()
+                } 
         })
     
 }
-ajouterDefi()
+
+function supprimerDefi(){
+    document.querySelectorAll(".defi").forEach((ele)=>{
+        ele.addEventListener('click',e=>{
+            if(e.target.classList.contains('deleteDefi')){
+                if(window.confirm("Supprimer le defi!")){
+                    let idDefi = Number(e.currentTarget.dataset.idDefi)
+                    let index = defis.findIndex(ele=> ele.id == idDefi)
+                    if(index !== -1){
+                        defis.splice(index,1)
+                        affichageDefi()
+                    }
+                }
+            }
+            
+    })
+    })
+}
+
