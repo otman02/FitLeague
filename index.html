@@ -169,6 +169,54 @@
 
 
 
+
+
+
+
+
+
+    <div class="modifoerDefi popUp fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center hidden"
+        id="nvdefi">
+        <div class="  bg-white w-full max-w-md p-6 rounded-3xl shadow-xl"> <button id="closeDefi"
+                class=" bottom-5 bg-red-500 rounded-xl p-1 w-10 text-white cursor-pointer">X</button>
+            <h2 class="text-2xl font-bold mb-4">créer un defi</h2>
+            <form name="formDefi" class="flex flex-col gap-5 ">
+                <div class="statusDeForm  rounded-md text-center py-2"></div>
+                <label for="nomDefi">Nom de defi</label>
+                <input required type="text" class="border rounded-md py-2 px-4" id="nomDefi" name="defi"
+                    placeholder="Nom de defi">
+
+                <label for="sport">Sport</label>
+                <input required type="text" class="border rounded-md py-2 px-4" name="sport" placeholder="Ex: Footbal">
+
+                <label for="objectif">objectif</label>
+                <input required type="text" class="border rounded-md py-2 px-4" name="objectif"
+                    placeholder="Objectif de defi">
+
+                <label for="dateFin">Date fin</label>
+                <input required type="date" class="border rounded-md py-2 px-4" name="dateFin">
+
+                <label for="description">Description</label><textarea required name="description"
+                    class="border rounded-md py-2 px-4" id="description" placeholder="Description"></textarea>
+
+                <label for="photoDefi">Photo du defi</label>
+                <input required type="file"
+                    class="file:mr-3 file:py-2 file:px-4 file:border-0 hover:file:bg-green-900 text-balck text-sm border rounded-md file:bg-black file:text-white shadow-xl"
+                    name="image">
+
+                <button class="bg-green-900 rounded-xl p-1 text-[#fff] btnAjout">Creer le defi</button>
+            </form>
+        </div>
+
+    </div>
+
+
+
+
+
+
+
+
     <main id="pageDefi" class="">
         <header
             class="flex justify-between  bg-green-500 pl-4 pr-4  content-center items-center rounded-md h-15 shadow-xl ">
