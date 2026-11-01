@@ -7,6 +7,13 @@ document.getElementById("closeDefi").addEventListener('click',e=>{
 })
 
 
+
+document.getElementById("closeMdf").addEventListener('click',e=>{
+    document.querySelector(".modifoerDefi").classList.add("hidden")
+})
+
+
+
 let btnsShowTop = document.querySelectorAll(".btn-show-top3")
 
 btnsShowTop.forEach(ele=>{

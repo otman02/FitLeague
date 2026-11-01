@@ -1,10 +1,11 @@
 let config = {
-    id : 6
+    id: 6
 }
 
 let containerDefi = document.querySelector(".conatinerDefi")
 let btn = document.querySelector(".btn")
 let form = document.forms.formDefi
+let MdfFrom = document.forms.modifierDefi
 let statusDeForm = document.querySelector(".statusDeForm")
 let defiAjout;
 
@@ -15,7 +16,7 @@ ajouterDefi()
 function divDefi(defi) {
     let dateFin = new Date(defi.datefine)
     let now = new Date()
-    let status = 'en cour'
+    let status = 'en cours'
     if (dateFin < now) {
         status = 'terminer'
     }
@@ -36,7 +37,7 @@ function divDefi(defi) {
                 </p>
                 <button
                     class="editDefi bg-gray-200 rounded-full px-3 py-1 text-md text-blue-700 mt-4 cursor-pointer">
-                    <i class="fa-solid fa-pen-to-square"></i>
+                    <i class="editDefi fa-solid fa-pen-to-square"></i>
                 </button>
                 <button 
                     class="deleteDefi bg-gray-200 rounded-full px-3 py-1 text-md text-red-700 mt-4 cursor-pointer">
@@ -47,7 +48,7 @@ function divDefi(defi) {
                     Inscrir
                     <i class="fa-solid fa-person-circle-plus"></i>
                 </button>
-                <span id="status" class=" ${status == "en cour" ? "bg-green-200 text-green-700" : "bg-red-200 text-red-700"} rounded-full px-3 py-1 text-md mt-4 ">
+                <span id="status" class=" ${status == "en cours" ? "bg-green-200 text-green-700" : "bg-red-200 text-red-700"} rounded-full px-3 py-1 text-md mt-4 ">
                     ${status}
                 </span>
             </div>
@@ -63,8 +64,8 @@ function affichageDefi() {
         div += divDefi(ele)
     })
     containerDefi.innerHTML = div
-    
-    supprimerDefi()
+
+    fDefi()
 }
 
 
@@ -82,61 +83,95 @@ function validation() {
     let description = form.description.value
     let image = form.image.value
 
-    if(nom == "" || sport == "" || objectif == "" || dateFin == "" || description == ""|| image ==""){
-        document.querySelector(".statusDeForm").classList.add("bg-red-300") 
-        document.querySelector(".statusDeForm").textContent= "invalid Input"
+    if (nom == "" || sport == "" || objectif == "" || dateFin == "" || description == "" || image == "") {
+        document.querySelector(".statusDeForm").classList.add("bg-red-300")
+        document.querySelector(".statusDeForm").textContent = "invalid Input"
         return false
     }
     else {
         statusDeForm.classList.remove("bg-red-300")
-        document.querySelector(".statusDeForm").textContent= ""
+        document.querySelector(".statusDeForm").textContent = ""
         defiAjout = {
             id: config.id,
-            nom : nom,
+            nom: nom,
             sport: sport,
             descreption: description,
-            image:form.image.src,
+            image: form.image.src,
             target: objectif,
             datefine: dateFin
         }
-        config.id +=1
+        config.id += 1
         return true
     }
 }
 
 
-function ajouterDefi(){
-    
-        document.querySelector(".btnAjout").addEventListener('click',e=>{
-            e.preventDefault()
-            
-                if(validation() == true){
-                    defis.push(defiAjout)
-                    affichageDefi()
-                    window.alert("Le defi cree avec succee!")
-                    document.getElementById("nvdefi").classList.add("hidden")
-                    console.log(defis)
-                    form.reset()
-                } 
-        })
-    
+function ajouterDefi() {
+
+    document.querySelector(".btnAjout").addEventListener('click', e => {
+        e.preventDefault()
+
+        if (validation() == true) {
+            defis.push(defiAjout)
+            affichageDefi()
+            window.alert("Le defi cree avec succee!")
+            document.getElementById("nvdefi").classList.add("hidden")
+            console.log(defis)
+            form.reset()
+        }
+    })
+
 }
 
-function supprimerDefi(){
-    document.querySelectorAll(".defi").forEach((ele)=>{
-        ele.addEventListener('click',e=>{
-            if(e.target.classList.contains('deleteDefi')){
-                if(window.confirm("Supprimer le defi!")){
-                    let idDefi = Number(e.currentTarget.dataset.idDefi)
-                    let index = defis.findIndex(ele=> ele.id == idDefi)
-                    if(index !== -1){
-                        defis.splice(index,1)
-                        affichageDefi()
-                    }
-                }
-            }
-            
-    })
+
+function fDefi() {
+    document.querySelectorAll(".defi").forEach((ele) => {
+        ele.addEventListener('click', e => {
+            supprimerDefi(e)
+            modifierDefi(e)
+        })
     })
 }
+
+function supprimerDefi(e) {
+    if (e.target.classList.contains('deleteDefi')) {
+        if (window.confirm("Supprimer le defi!")) {
+            let idDefi = Number(e.currentTarget.dataset.idDefi)
+            let index = defis.findIndex(ele => ele.id == idDefi)
+            if (index !== -1) {
+                defis.splice(index, 1)
+                affichageDefi()
+            }
+        }
+    }
+}
+
+function modifierDefi(e) {
+    if(e.target.classList.contains("editDefi")){
+        document.querySelector('.modifoerDefi').classList.remove("hidden")
+        let idDefi = Number(e.currentTarget.dataset.idDefi)
+        let index = defis.findIndex(ele=> ele.id == idDefi)
+        let defi = defis.find(ele=>ele.id == idDefi)
+        MdfFrom.defi.value = defi.nom
+        MdfFrom.sport.value = defi.sport
+        MdfFrom.objectif.value = defi.target
+        MdfFrom.dateFin.value = defi.datefine
+        MdfFrom.description.value = defi.descreption
+        
+        document.querySelector(".btnMdf").addEventListener('click',e=>{
+            e.preventDefault()
+            if(index !== -1){
+                defis[index].nom = MdfFrom.defi.value
+                defis[index].sport = MdfFrom.sport.value
+                defis[index].target = MdfFrom.objectif.value
+                defis[index].datefine = MdfFrom.dateFin.value
+                defis[index].descreption = MdfFrom.description.value
+                document.querySelector('.modifoerDefi').classList.add("hidden")
+                affichageDefi()
+            }
+        })
+    }
+}
+
+
 

@@ -170,17 +170,12 @@
 
 
 
-
-
-
-
-
     <div class="modifoerDefi popUp fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center hidden"
-        id="nvdefi">
-        <div class="  bg-white w-full max-w-md p-6 rounded-3xl shadow-xl"> <button id="closeDefi"
+        id="MdfDefi">
+        <div class="  bg-white w-full max-w-md p-6 rounded-3xl shadow-xl"> <button id="closeMdf"
                 class=" bottom-5 bg-red-500 rounded-xl p-1 w-10 text-white cursor-pointer">X</button>
             <h2 class="text-2xl font-bold mb-4">créer un defi</h2>
-            <form name="formDefi" class="flex flex-col gap-5 ">
+            <form name="modifierDefi" class="flex flex-col gap-5 ">
                 <div class="statusDeForm  rounded-md text-center py-2"></div>
                 <label for="nomDefi">Nom de defi</label>
                 <input required type="text" class="border rounded-md py-2 px-4" id="nomDefi" name="defi"
@@ -204,7 +199,7 @@
                     class="file:mr-3 file:py-2 file:px-4 file:border-0 hover:file:bg-green-900 text-balck text-sm border rounded-md file:bg-black file:text-white shadow-xl"
                     name="image">
 
-                <button class="bg-green-900 rounded-xl p-1 text-[#fff] btnAjout">Creer le defi</button>
+                <button class="bg-green-900 rounded-xl p-1 text-[#fff] btnMdf">Modifier le defi</button>
             </form>
         </div>
 
@@ -251,7 +246,7 @@
 
             <div class="flex justify-center align-center h-20 gap-3 ">
                 <label for="searchDefi"><i class="fa-solid fa-magnifying-glass "></i></label>
-                <input type="text" name="" id="" class="border rounded-sm px-2 h-10" placeholder="Rechercher">
+                <input type="text" name="" id="searchDefi" class="border rounded-sm px-2 h-10" placeholder="Rechercher">
                 <select name="filter" id="" class="h-10 border rounded-md">
                     <option value="">Choisissez</option>
                     <option vlaue="sport">Push-Up</option>
