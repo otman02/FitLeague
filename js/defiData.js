@@ -12,7 +12,6 @@
         nom : "Defi De Ahmed",
         sport : "push-up",
         descreption : "push up context",
-
         image: "assets/push-up.webp",
         target: "150",
         datefine: "2026-03-05"
@@ -42,5 +41,4 @@
         target: "15Km",
         datefine: "2026-09-15"
     }
-
 ]
