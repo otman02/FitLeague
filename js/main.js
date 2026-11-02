@@ -35,3 +35,26 @@ document.getElementById("close-top3").addEventListener('click',e=>{
 document.getElementById("closeMdfp").addEventListener("click",()=>{
     document.getElementById("Mdfprti").classList.add("hidden")
 })
+
+
+
+// les liens
+
+document.querySelector('.headerLiens').addEventListener('click',event=>{
+    if(event.target.classList.contains("lienTableauBord")) {
+        document.querySelector(".mainTableauBord").classList.remove("hidden")
+        document.querySelector(".mainDefi").classList.add("hidden")
+        document.querySelector(".mainParticepent").classList.add("hidden")
+    }
+    
+    if(event.target.classList.contains("lienDefi")){
+        document.querySelector(".mainTableauBord").classList.add("hidden")
+        document.querySelector(".mainDefi").classList.remove("hidden")
+        document.querySelector(".mainParticepent").classList.add("hidden")
+    }
+    if(event.target.classList.contains("lienParticipantent")){
+        document.querySelector(".mainTableauBord").classList.add("hidden")
+        document.querySelector(".mainDefi").classList.add("hidden")
+        document.querySelector(".mainParticepent").classList.remove("hidden")
+    }
+})
