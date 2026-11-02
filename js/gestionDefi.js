@@ -175,3 +175,36 @@ function modifierDefi(e) {
 
 
 
+
+// RecherCher defi
+
+document.getElementById("searchDefi").addEventListener("input",e=>{
+    let inputValue = e.currentTarget.value
+    let defi = defis.find(ele=> ele.nom == inputValue)
+    if(defi !== undefined){
+        containerDefi.innerHTML = divDefi(defi)
+    }else{
+        affichageDefi()
+    }
+})
+
+function select(){
+    let div = ''
+    defis.forEach(ele=>{
+        div += `<option value="${ele.sport}">${ele.sport}</option>`
+    })
+    
+    return div
+}
+
+document.getElementById("filterSport").innerHTML +=  select()
+
+document.getElementById("filterSport").addEventListener('input',e=>{
+    let defiChoisi = e.currentTarget.value
+    let defi = defis.find(ele=> ele.sport == defiChoisi)
+    if(defiChoisi !== "" && defi !== undefined){
+        containerDefi.innerHTML = divDefi(defi)
+    }else{
+        affichageDefi()
+    }
+})
