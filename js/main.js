@@ -25,3 +25,13 @@ btnsShowTop.forEach(ele=>{
 document.getElementById("close-top3").addEventListener('click',e=>{
     document.getElementById("top3-container").classList.add("hidden")
 })
+
+ const btnparticipantmdf= document.querySelectorAll(".btnparticipants-modifier")
+
+ btnparticipantmdf.forEach(bt=>{bt.addEventListener("click",()=>{ document.getElementById("Mdfprti").classList.remove("hidden")})})
+
+
+
+document.getElementById("closeMdfp").addEventListener("click",()=>{
+    document.getElementById("Mdfprti").classList.add("hidden")
+})

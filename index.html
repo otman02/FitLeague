@@ -363,6 +363,42 @@
                 </div> -->
             </div>
 
+            
+    <div class="modifoerpartici popUp fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center hidden"
+        id="Mdfprti">
+        <div class="  bg-white w-full max-w-md p-6 rounded-3xl shadow-xl"> <button id="closeMdfp"
+                class=" bottom-5 bg-red-500 rounded-xl p-1 w-10 text-white cursor-pointer">X</button>
+            <h2 class="text-2xl font-bold mb-4">modifier les information des participant</h2>
+            <form name="modifierprtci" class="flex flex-col gap-5 ">
+               
+
+                <label for="name">name</label>
+                <input required type="text" class="border rounded-md py-2 px-4" id="nomparti" name="participant"
+                    placeholder="Nomde participant">
+
+                <label for="pseudo">pseudo</label><input required type="text" class="border rounded-md py-2 px-4" id="pseudoname" name="le pseudoname de participant"
+                    placeholder="pseudo">
+                    <div><label for="performance">
+                           <select name="performance" id="perfor" required type="text" class="border rounded-md py-2 px-4" id="pseudoname" name="le pseudoname de participant" >
+                            <option value="select">select performance</option>
+
+                    </select>
+                    </label>
+                     
+                    </div>
+                    
+
+                <label for="photoDefi">profile</label>
+                <input required type="file"
+                    class="file:mr-3 file:py-2 file:px-4 file:border-0 hover:file:bg-green-900 text-balck text-sm border rounded-md file:bg-black file:text-white shadow-xl"
+                    name="image">
+
+                <button class="bg-green-900 rounded-xl p-1 text-[#fff] btnMdf">Modifier</button>
+            </form>
+        </div>
+
+    </div>
+                   
         </section>
 
 
@@ -410,11 +446,11 @@
 
     </footer>
 
-    <script src="js/main.js"></script>
     <script src="js/defiData.js"></script>
     <script src="js/gestionDefi.js"></script>
     <script src="js/participant.js"></script>
     <script src="js/gestionparticipants.js"></script>
+    <script src="js/main.js"></script>
 </body>
 
 </html>
