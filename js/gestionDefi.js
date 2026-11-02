@@ -1,5 +1,9 @@
+// let defis = []
+// localStorage.setItem('defi',JSON.stringify(defis))
+let items = JSON.parse(localStorage.getItem("defi"))
+console.log(items)
 let config = {
-    id: 6
+    id: items.length
 }
 
 let containerDefi = document.querySelector(".conatinerDefi")
@@ -60,7 +64,7 @@ function divDefi(defi) {
 function affichageDefi() {
     containerDefi.innerHTML = ''
     let div = ''
-    defis.forEach(ele => {
+    items.forEach(ele => {
         div += divDefi(ele)
     })
     containerDefi.innerHTML = div
@@ -112,11 +116,12 @@ function ajouterDefi() {
         e.preventDefault()
 
         if (validation() == true) {
-            defis.push(defiAjout)
+            items.push(defiAjout)
+            localStorage.setItem('defi',JSON.stringify(items))
             affichageDefi()
             window.alert("Le defi cree avec succee!")
             document.getElementById("nvdefi").classList.add("hidden")
-            console.log(defis)
+            // console.log(defis)
             form.reset()
         }
     })
@@ -137,21 +142,23 @@ function supprimerDefi(e) {
     if (e.target.classList.contains('deleteDefi')) {
         if (window.confirm("Supprimer le defi!")) {
             let idDefi = Number(e.currentTarget.dataset.idDefi)
-            let index = defis.findIndex(ele => ele.id == idDefi)
+            let index = items.findIndex(ele => ele.id == idDefi)
             if (index !== -1) {
-                defis.splice(index, 1)
+                items.splice(index, 1)
+                localStorage.setItem('defi',JSON.stringify(items))
                 affichageDefi()
             }
         }
     }
 }
 
+
 function modifierDefi(e) {
     if(e.target.classList.contains("editDefi")){
         document.querySelector('.modifoerDefi').classList.remove("hidden")
         let idDefi = Number(e.currentTarget.dataset.idDefi)
-        let index = defis.findIndex(ele=> ele.id == idDefi)
-        let defi = defis.find(ele=>ele.id == idDefi)
+        let index = items.findIndex(ele=> ele.id == idDefi)
+        let defi = items.find(ele=>ele.id == idDefi)
         MdfFrom.defi.value = defi.nom
         MdfFrom.sport.value = defi.sport
         MdfFrom.objectif.value = defi.target
@@ -161,11 +168,12 @@ function modifierDefi(e) {
         document.querySelector(".btnMdf").addEventListener('click',e=>{
             e.preventDefault()
             if(index !== -1){
-                defis[index].nom = MdfFrom.defi.value
-                defis[index].sport = MdfFrom.sport.value
-                defis[index].target = MdfFrom.objectif.value
-                defis[index].datefine = MdfFrom.dateFin.value
-                defis[index].descreption = MdfFrom.description.value
+                items[index].nom = MdfFrom.defi.value
+                items[index].sport = MdfFrom.sport.value
+                items[index].target = MdfFrom.objectif.value
+                items[index].datefine = MdfFrom.dateFin.value
+                items[index].descreption = MdfFrom.description.value
+                localStorage.setItem('defi',JSON.stringify(items))
                 document.querySelector('.modifoerDefi').classList.add("hidden")
                 affichageDefi()
             }
@@ -180,7 +188,7 @@ function modifierDefi(e) {
 
 document.getElementById("searchDefi").addEventListener("input",e=>{
     let inputValue = e.currentTarget.value
-    let defi = defis.find(ele=> ele.nom == inputValue)
+    let defi = items.find(ele=> ele.nom == inputValue)
     if(defi !== undefined){
         containerDefi.innerHTML = divDefi(defi)
     }else{
@@ -190,7 +198,7 @@ document.getElementById("searchDefi").addEventListener("input",e=>{
 
 function select(){
     let div = ''
-    defis.forEach(ele=>{
+    items.forEach(ele=>{
         div += `<option value="${ele.sport}">${ele.sport}</option>`
     })
     
@@ -201,10 +209,16 @@ document.getElementById("filterSport").innerHTML +=  select()
 
 document.getElementById("filterSport").addEventListener('input',e=>{
     let defiChoisi = e.currentTarget.value
-    let defi = defis.find(ele=> ele.sport == defiChoisi)
+    let defi = items.find(ele=> ele.sport == defiChoisi)
     if(defiChoisi !== "" && defi !== undefined){
         containerDefi.innerHTML = divDefi(defi)
     }else{
         affichageDefi()
     }
 })
+
+
+
+   
+
+// console.log(items)
