@@ -1,6 +1,8 @@
-// let defis = []
-// localStorage.setItem('defi',JSON.stringify(defis))
+if (localStorage.getItem('defi') === null) {
+    localStorage.setItem('defi', JSON.stringify(defis))
+}
 let items = JSON.parse(localStorage.getItem("defi"))
+items.sort((firstDate, secondDate)=> new Date(secondDate.datefine) - new Date(firstDate.datefine) )
 console.log(items)
 let config = {
     id: items.length
@@ -14,7 +16,19 @@ let statusDeForm = document.querySelector(".statusDeForm")
 let defiAjout;
 
 affichageDefi()
-ajouterDefi()
+document.querySelector(".btnAjout").addEventListener('click', e => {
+    e.preventDefault()
+    if (validation() == true) {
+        items.push(defiAjout)
+        localStorage.setItem('defi',JSON.stringify(items))
+        affichageDefi()
+        window.alert("Le defi cree avec succee!")
+        document.getElementById("nvdefi").classList.add("hidden")
+        form.reset()
+    }else{
+        window.alert("Valider votre information!")
+    }
+})
 
 
 function divDefi(defi) {
@@ -68,8 +82,8 @@ function affichageDefi() {
         div += divDefi(ele)
     })
     containerDefi.innerHTML = div
-
     fDefi()
+    // select()
 }
 
 
@@ -110,30 +124,14 @@ function validation() {
 }
 
 
-function ajouterDefi() {
 
-    document.querySelector(".btnAjout").addEventListener('click', e => {
-        e.preventDefault()
-
-        if (validation() == true) {
-            items.push(defiAjout)
-            localStorage.setItem('defi',JSON.stringify(items))
-            affichageDefi()
-            window.alert("Le defi cree avec succee!")
-            document.getElementById("nvdefi").classList.add("hidden")
-            // console.log(defis)
-            form.reset()
-        }
-    })
-
-}
 
 
 function fDefi() {
     document.querySelectorAll(".defi").forEach((ele) => {
         ele.addEventListener('click', e => {
             supprimerDefi(e)
-            modifierDefi(e)
+            modifierDefi(e) 
         })
     })
 }
@@ -150,6 +148,7 @@ function supprimerDefi(e) {
             }
         }
     }
+    
 }
 
 
@@ -187,38 +186,21 @@ function modifierDefi(e) {
 // RecherCher defi
 
 document.getElementById("searchDefi").addEventListener("input",e=>{
-    let inputValue = e.currentTarget.value
-    let defi = items.find(ele=> ele.nom == inputValue)
-    if(defi !== undefined){
-        containerDefi.innerHTML = divDefi(defi)
-    }else{
+    let containerNotFound = document.querySelector(".notFound")
+    let inputValue = e.currentTarget.value.toLowerCase()
+    let defi = items.filter(ele=> ele.nom.toLowerCase() == inputValue)
+    if(defi.length > 0 ){
+        containerDefi.innerHTML = ''
+        defi.forEach(ele=>{
+            containerDefi.innerHTML += divDefi(ele)
+        })
+        containerNotFound.textContent  = ""
+    }else if(inputValue == ""){
+        containerNotFound.textContent  = ""
         affichageDefi()
-    }
-})
-
-function select(){
-    let div = ''
-    items.forEach(ele=>{
-        div += `<option value="${ele.sport}">${ele.sport}</option>`
-    })
-    
-    return div
-}
-
-document.getElementById("filterSport").innerHTML +=  select()
-
-document.getElementById("filterSport").addEventListener('input',e=>{
-    let defiChoisi = e.currentTarget.value
-    let defi = items.find(ele=> ele.sport == defiChoisi)
-    if(defiChoisi !== "" && defi !== undefined){
-        containerDefi.innerHTML = divDefi(defi)
     }else{
-        affichageDefi()
+        containerDefi.innerHTML = ''
+        containerNotFound.textContent = "Il n'y a aucun resultat 😢"
     }
+    fDefi()
 })
-
-
-
-   
-
-// console.log(items)

@@ -40,6 +40,7 @@ document.getElementById("closeMdfp").addEventListener("click",()=>{
 
 // les liens
 
+
 document.querySelector('.headerLiens').addEventListener('click',event=>{
     if(event.target.classList.contains("lienTableauBord")) {
         document.querySelector(".mainTableauBord").classList.remove("hidden")
