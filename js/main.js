@@ -59,3 +59,52 @@ document.querySelector('.headerLiens').addEventListener('click',event=>{
         document.querySelector(".mainParticepent").classList.remove("hidden")
     }
 })
+
+
+
+
+function activerBoutonsmodifier(){
+        document.querySelectorAll(".btnparticipants-modifier").forEach(bt=>{
+            bt.addEventListener("click",()=>{
+                document.getElementById("Mdfprti").classList.remove("hidden")
+    
+
+
+    curentID= Number(bt.dataset.id)
+    const par = participantes.find(p=> p.id===curentID);
+
+    document.getElementById("name-mdf").value =par.name
+    document.getElementById("pseudo-mdf").value =par.pseudo
+    document.getElementById("performance-mdf").value =par.perferormance
+   
+
+ });
+})
+} 
+activerBoutonsmodifier()
+
+
+
+
+document.getElementById("btnmdpart").addEventListener("click",(e)=>{
+    e.preventDefault()
+     const par = participantes.find(p=> p.id===curentID);
+     par.name=document.getElementById("name-mdf").value
+     par.pseudo = document.getElementById("pseudo-mdf").value
+     par.perferormance=Number(document.getElementById("performance-mdf").value)
+    
+
+     document.getElementById("Mdfprti").classList.add("hidden")
+     cards()
+     activerBoutonsmodifier()
+
+})
+
+
+
+    document.getElementById("closeMdfp").addEventListener("click",()=>{
+    document.getElementById("Mdfprti").classList.add("hidden")
+})
+
+  const perferormanceselecter = document.getElementById("performance-mdf")
+  for (let i=1 ;i<=100 ;i++){perferormanceselecter.innerHTML += `<option value="${i}">${i}</option>`}

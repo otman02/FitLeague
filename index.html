@@ -355,17 +355,16 @@
 
 
                         <label for="name">name</label>
-                        <input required type="text" class="border rounded-md py-2 px-4" id="nomparti" name="participant"
+                        <input required type="text" class="border rounded-md py-2 px-4" id="name-mdf" name="participant"
                             placeholder="Nomde participant">
 
                         <label for="pseudo">pseudo</label><input required type="text"
-                            class="border rounded-md py-2 px-4" id="pseudoname" name="le pseudoname de participant"
+                            class="border rounded-md py-2 px-4" id="pseudo-mdf" name="le pseudoname de participant"
                             placeholder="pseudo">
                         <div><label for="performance">
-                                <select name="performance" id="perfor" required type="text"
-                                    class="border rounded-md py-2 px-4" id="pseudoname"
-                                    name="le pseudoname de participant">
-                                    <option value="select">select performance</option>
+                                <select name="performance" required type="text" class="border rounded-md py-2 px-4"
+                                    id="performance-mdf" name="le perf de participant">
+                                    <option value="" selected disabled>select performance</option>
 
                                 </select>
                             </label>
@@ -374,11 +373,11 @@
 
 
                         <label for="photoDefi">profile</label>
-                        <input required type="file"
+                        <input type="file" id="profile"
                             class="file:mr-3 file:py-2 file:px-4 file:border-0 hover:file:bg-green-900 text-balck text-sm border rounded-md file:bg-black file:text-white shadow-xl"
                             name="image">
 
-                        <button class="bg-green-900 rounded-xl p-1 text-[#fff] btnMdf">Modifier</button>
+                        <button id="btnmdpart" class="bg-green-900 rounded-xl p-1 text-[#fff] ">Modifier</button>
                     </form>
                 </div>
 
