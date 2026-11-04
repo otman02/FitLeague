@@ -5,7 +5,10 @@ let curentID=null
 cards()
 
 
-function cards(){participantes.forEach(par=> participants.innerHTML += card(par))}
+function cards(){
+    participants.innerHTML=""
+    
+    participantes.forEach(par=>  participants.innerHTML += card(par))}
 
 
 
@@ -16,7 +19,7 @@ function cards(){participantes.forEach(par=> participants.innerHTML += card(par)
     return  `           
                
                     <div class="flex flex-col gap-5"><img src=${Image} alt="${name}"
-                            class="w-10 h-10 rounded-full object-cover mt-2 ml-2">  
+                            class="w-10 h-10 rounded-full object-cover mt-2 ml-2" id="profile">  
                             <p class="ml-5 font-bold" >${perferormance}</p>
                             
                             </div>

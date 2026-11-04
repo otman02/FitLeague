@@ -77,6 +77,7 @@ function activerBoutonsmodifier(){
     document.getElementById("pseudo-mdf").value =par.pseudo
     document.getElementById("performance-mdf").value =par.perferormance
    
+   
 
  });
 })
@@ -92,6 +93,7 @@ document.getElementById("btnmdpart").addEventListener("click",(e)=>{
      par.name=document.getElementById("name-mdf").value
      par.pseudo = document.getElementById("pseudo-mdf").value
      par.perferormance=Number(document.getElementById("performance-mdf").value)
+     
     
 
      document.getElementById("Mdfprti").classList.add("hidden")
@@ -108,3 +110,14 @@ document.getElementById("btnmdpart").addEventListener("click",(e)=>{
 
   const perferormanceselecter = document.getElementById("performance-mdf")
   for (let i=1 ;i<=100 ;i++){perferormanceselecter.innerHTML += `<option value="${i}">${i}</option>`}
+
+
+
+
+  document.getElementById("ajouter-participant").addEventListener("click",()=>{
+    document.getElementById("ajouter").classList.remove("hidden")
+  })
+
+  document.getElementById("close-ajourte").addEventListener("click",()=>{
+    document.getElementById("ajouter").classList.add("hidden")
+  })
