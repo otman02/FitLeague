@@ -1,4 +1,7 @@
-let participants = document.querySelector("#partici")
+let curentID=null
+
+ let participants = document.querySelector("#partici")
+
 cards()
 
 
@@ -22,34 +25,33 @@ function cards(){participantes.forEach(par=> participants.innerHTML += card(par)
                 `
  }
 
- function content(name,pseudo){
+ function content(name,pseudo, id ){
 
     return `            <div>
                         <p class="font-bold">${name}</p>
                         <p>${pseudo}</p>
                     </div>
-                    <div class="flex flex-col gap-2"><button id="mod-part" class=" btnparticipants-modifier bg-yellow-200 rounded-md cursor-pointer"><i
+                    <div class="flex flex-col gap-2"><button data-id=${id} class=" btnparticipants-modifier bg-yellow-200 rounded-md cursor-pointer"><i
                                 class="fa-solid fa-pen-to-square"></i></button><button
                             class="bg-red-500 rounded-md cursor-pointer"><i
                                 class="fa-solid fa-trash"></i></button><button
                             class="bg-green-100 cursor-pointer rounded-md"><i class="fa-solid fa-eye"></i></button>
                     </div>
                 `
+                
  }
 
  function card(par){
     return `
             <div class="flex gap-15 justify-center items-center w-70 h-25 bg-green-600 rounded-md shadow-xl">
                ${image(par.Image,par.name,par.perferormance)}
-               ${content(par.name,par.pseudo)}
+               ${content(par.name,par.pseudo,par.id)}
                 </div>
     
     `
  }
 
 
-  const perferormanceselecter = document.getElementById("perfor")
-  for (let i=1 ;i<=100 ;i++){perferormanceselecter.innerHTML += `<option value="${i}">${i}</option>`}
 
 
 
