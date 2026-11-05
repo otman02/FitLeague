@@ -1,3 +1,40 @@
+if (localStorage.getItem('participantesData') === null) {
+    localStorage.setItem('participantesData', JSON.stringify(participantesData))
+}
+let participantes = JSON.parse(localStorage.getItem("participantesData"))
+
+
+
+document.querySelector('.containerBord').innerHTML = `
+            <div class="w-80 bg-white h-15 flex items-center rounded-md gap-5  px-2 shadow-xl">
+                <div class="bg-yellow-500 h-7 w-7 flex items-center justify-center rounded-sm"><i
+                        class="fa-solid fa-trophy"> </i> </div>
+                <div class="flex flex-col justify-center">
+                    <div>${items.length} </div>
+                    <p>defis totale</p>
+                </div>
+            </div>
+            <div class="w-80 bg-white h-15 flex items-center rounded-md gap-5  px-2 shadow-xl">
+                <div class="bg-yellow-500 h-7 w-7 flex items-center justify-center rounded-sm"><i
+                        class="fa-solid fa-user-group"></i></div>
+                <div class="flex flex-col justify-center">
+                    <div>${participantes.length}</div>
+                    <p> participantes</p>
+                </div>
+            </div>
+            <div class="w-80 bg-white h-15 flex items-center rounded-md gap-5  px-2 shadow-xl">
+                <div class="bg-yellow-500 h-7 w-7 flex items-center justify-center rounded-sm"><i
+                        class="fa-solid fa-bolt  "></i></div>
+                <div class="flex flex-col justify-center">
+                    <div>${items.filter(item=>item.status == 'en cours').length} </div>
+                    <p>defis actifs</p>
+                </div>
+            </div>
+`
+
+
+
+
 document.getElementById("new-defis").addEventListener('click',e=>{
     document.getElementById("nvdefi").classList.remove("hidden")
 })
@@ -11,6 +48,7 @@ document.getElementById("closeDefi").addEventListener('click',e=>{
 document.getElementById("closeMdf").addEventListener('click',e=>{
     document.querySelector(".modifoerDefi").classList.add("hidden")
 })
+
 
 
 
@@ -36,6 +74,12 @@ document.getElementById("closeMdfp").addEventListener("click",()=>{
     document.getElementById("Mdfprti").classList.add("hidden")
 })
 
+
+// ajouter hidden pur form inscrir participant
+
+document.querySelector(".closeAjoutePart").addEventListener('click',event=>{
+    document.querySelector(".formAjouterPArticiapnt").classList.add('hidden')
+})
 
 
 // les liens
@@ -67,7 +111,7 @@ function activerBoutonsmodifier(){
         document.querySelectorAll(".btnparticipants-modifier").forEach(bt=>{
             bt.addEventListener("click",()=>{
                 document.getElementById("Mdfprti").classList.remove("hidden")
-    
+                
 
 
     curentID= Number(bt.dataset.id)
@@ -76,7 +120,6 @@ function activerBoutonsmodifier(){
     document.getElementById("name-mdf").value =par.name
     document.getElementById("pseudo-mdf").value =par.pseudo
     document.getElementById("performance-mdf").value =par.perferormance
-   
    
 
  });
@@ -93,6 +136,7 @@ document.getElementById("btnmdpart").addEventListener("click",(e)=>{
      par.name=document.getElementById("name-mdf").value
      par.pseudo = document.getElementById("pseudo-mdf").value
      par.perferormance=Number(document.getElementById("performance-mdf").value)
+     localStorage.setItem('participantesData', JSON.stringify(participantes))
      
     
 
@@ -147,6 +191,7 @@ let new_paricipant ={
 
 
  participantes.push(new_paricipant)
+ localStorage.setItem('participantesData', JSON.stringify(participantes))
  document.getElementById("ajouter").classList.add("hidden")
  cards()
  
@@ -170,13 +215,11 @@ function suprimerparticipants(){
             ID = Number(button.dataset.id)
             let indexparticip= participantes.findIndex(part=>part.id == ID)
             participantes.splice(indexparticip,1)
+            localStorage.setItem('participantesData', JSON.stringify(participantes))
             cards()
             suprimerparticipants()
             activerBoutonsmodifier()
-        }
-
-
-        
+        }  
     })
   })
 } suprimerparticipants()

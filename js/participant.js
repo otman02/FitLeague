@@ -1,9 +1,9 @@
-const participantes = [
+let participantesData = [
 
             {
                 id : 1,
                 name : "otman hannoun",
-                pseudo: "mrxma" ,               
+                pseudo: "mrxma1" ,               
                  Image: "assets/marvels-spider-man-3840x2160-11990.jpeg",
                  perferormance: 50
               
@@ -11,7 +11,7 @@ const participantes = [
              {
                 id : 2,
                 name : "otman hannoun",
-                pseudo: "mrxma" ,               
+                pseudo: "mrxma2" ,               
                  Image: "assets/spider-man-marvel-6000x4000-11025.jpg",
                  perferormance: 50
               
@@ -19,7 +19,7 @@ const participantes = [
              {
                 id : 3,
                 name : "otman hannoun",
-                pseudo: "mrxma" ,               
+                pseudo: "mrxma3" ,               
                  Image: "assets/spider-man-marvel-6000x4000-11025.jpg",
                  perferormance: 50
 
@@ -28,7 +28,7 @@ const participantes = [
              {
                 id : 4,
                 name : "otman hannoun",
-                pseudo: "mrxma" ,               
+                pseudo: "mrxma4" ,               
                  Image: "assets/spider-man-marvel-6000x4000-11025.jpg",
                  perferormance: 50
               
@@ -36,7 +36,7 @@ const participantes = [
              {
                 id : 5,
                 name : "otman hannoun",
-                pseudo: "mrxma" ,               
+                pseudo: "mrxma5" ,               
                  Image: "assets/spider-man-marvel-6000x4000-11025.jpg",
                  perferormance: 50,
               
