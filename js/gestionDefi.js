@@ -1,43 +1,75 @@
+// kat9alb ila makanch chi defi f localstorage ila makanch kat3amro
 if (localStorage.getItem('defi') === null) {
     localStorage.setItem('defi', JSON.stringify(defis))
 }
+// kanjibo les defi 
 let items = JSON.parse(localStorage.getItem("defi"))
-items.sort((firstDate, secondDate)=> new Date(secondDate.datefine) - new Date(firstDate.datefine) )
+// kantrbohm 3la hsab date jdid howa lewl
+const trieDefi = ()=>{items.sort((firstDate, secondDate)=> new Date(secondDate.datefine) - new Date(firstDate.datefine) )}
 console.log(items)
+// kanjibo id li kbir howa li kanbdaq bih bach maykonch id m3awd
 let config = {
-    id: items.length
+    id: items.length > 0 ? Math.max(...items.map(item => item.id)) + 1 : 0
 }
 
+
 let containerDefi = document.querySelector(".conatinerDefi")
-let btn = document.querySelector(".btn")
-let form = document.forms.formDefi
+let ajouterForm = document.forms.formDefi
 let MdfFrom = document.forms.modifierDefi
 let statusDeForm = document.querySelector(".statusDeForm")
 let defiAjout;
 
-affichageDefi()
-document.querySelector(".btnAjout").addEventListener('click', e => {
-    e.preventDefault()
-    if (validation() == true) {
-        items.push(defiAjout)
-        localStorage.setItem('defi',JSON.stringify(items))
-        affichageDefi()
-        window.alert("Le defi cree avec succee!")
-        document.getElementById("nvdefi").classList.add("hidden")
-        form.reset()
-    }else{
-        window.alert("Valider votre information!")
-    }
-})
 
-
-function divDefi(defi) {
+// kat9ad status ta3 defi 3la hsab date
+function verifierStatus(defi){
     let dateFin = new Date(defi.datefine)
     let now = new Date()
     let status = 'en cours'
     if (dateFin < now) {
         status = 'terminer'
     }
+    return status
+}
+
+// hna kandiro push ldik status li l9ina fi tableau ta3 defi li kaync f localstorage
+function modifierItemsStatus(){
+        items.forEach(item=>{
+            if(verifierStatus(item) === "en cours"){
+                item.status = "en cours"
+            }
+            if(verifierStatus(item) === "terminer"){
+                item.status = "terminer"
+            }
+            
+        })
+        localStorage.setItem('defi', JSON.stringify(items))
+        items = JSON.parse(localStorage.getItem("defi"))
+        console.log("modifier status=>",items)
+}
+modifierItemsStatus()
+affichageDefi()
+
+
+// __________________Ajouter Defi_________________________________
+document.querySelector(".btnAjout").addEventListener('click', event => {
+    event.preventDefault()
+    if (validation() == true) {
+        items.push(defiAjout)
+        config.id += 1
+        localStorage.setItem('defi',JSON.stringify(items))
+        affichageDefi()
+        window.alert("Le defi cree avec succee!")
+        document.getElementById("nvdefi").classList.add("hidden")
+        ajouterForm.reset()
+    }else{
+        window.alert("Valider votre information!")
+    }
+})
+
+
+
+function divDefi(defi) {
+    
     return `
         <div class="max-w-sm rounded overflow-hidden shadow-lg mb-4 defi" data-id-defi="${defi.id}">
             <img class="w-md h-56 object-cover" src="${defi.image}" alt="${defi.sport}">
@@ -66,8 +98,8 @@ function divDefi(defi) {
                     Inscrir
                     <i class="fa-solid fa-person-circle-plus"></i>
                 </button>
-                <span id="status" class=" ${status == "en cours" ? "bg-green-200 text-green-700" : "bg-red-200 text-red-700"} rounded-full px-3 py-1 text-md mt-4 ">
-                    ${status}
+                <span id="status" class=" ${defi.status == "en cours" ? "bg-green-200 text-green-700" : "bg-red-200 text-red-700"} rounded-full px-3 py-1 text-md mt-4 ">
+                    ${defi.status}
                 </span>
             </div>
         </div>
@@ -76,30 +108,36 @@ function divDefi(defi) {
 
 
 function affichageDefi() {
+    trieDefi()
     containerDefi.innerHTML = ''
     let div = ''
-    items.forEach(ele => {
-        div += divDefi(ele)
+    items.forEach(item => {
+        div += divDefi(item)
     })
     containerDefi.innerHTML = div
-    fDefi()
-    // select()
+    
 }
 
-
-
+function containerDefiEvent(conatiner){
+    conatiner.addEventListener('click', event => {
+        supprimerDefi(event);
+        modifierDefi(event);
+    })
+}
+containerDefiEvent(containerDefi)
 
 // Ajouter Defi
-
-
-
 function validation() {
-    let nom = form.defi.value
-    let sport = form.sport.value
-    let objectif = form.objectif.value
-    let dateFin = form.dateFin.value
-    let description = form.description.value
-    let image = form.image.value
+    let path  = "C:\\Users\\Youcode\\Desktop\\FitLeague\\public\\"
+    console.log("path=>",path)
+    let nom = ajouterForm.defi.value
+    let sport = ajouterForm.sport.value
+    let objectif = ajouterForm.objectif.value
+    let dateFin = ajouterForm.dateFin.value
+    let description = ajouterForm.description.value
+    let image = ajouterForm.image.value.replace("C:\\fakepath\\",path)
+    console.log("image=>",image);
+
 
     if (nom == "" || sport == "" || objectif == "" || dateFin == "" || description == "" || image == "") {
         document.querySelector(".statusDeForm").classList.add("bg-red-300")
@@ -109,42 +147,34 @@ function validation() {
     else {
         statusDeForm.classList.remove("bg-red-300")
         document.querySelector(".statusDeForm").textContent = ""
+
         defiAjout = {
             id: config.id,
             nom: nom,
             sport: sport,
             descreption: description,
-            image: form.image.src,
+            image: image,
             target: objectif,
             datefine: dateFin
         }
-        config.id += 1
+        console.log("defi ajouter=>",defiAjout)
         return true
     }
 }
 
 
 
-
-
-function fDefi() {
-    document.querySelectorAll(".defi").forEach((ele) => {
-        ele.addEventListener('click', e => {
-            supprimerDefi(e)
-            modifierDefi(e) 
-        })
-    })
-}
-
-function supprimerDefi(e) {
-    if (e.target.classList.contains('deleteDefi')) {
+function supprimerDefi(event) {
+    if (event.target.classList.contains('deleteDefi')) {
         if (window.confirm("Supprimer le defi!")) {
-            let idDefi = Number(e.currentTarget.dataset.idDefi)
-            let index = items.findIndex(ele => ele.id == idDefi)
+            let card = event.target.closest('.defi')
+            let idDefi = Number(card.dataset.idDefi)
+            let index = items.findIndex(item => item.id == idDefi)
             if (index !== -1) {
                 items.splice(index, 1)
                 localStorage.setItem('defi',JSON.stringify(items))
                 affichageDefi()
+                defiDeBord()
             }
         }
     }
@@ -152,47 +182,54 @@ function supprimerDefi(e) {
 }
 
 
-function modifierDefi(e) {
-    if(e.target.classList.contains("editDefi")){
+let index;
+function modifierDefi(event) {
+
+    if (event.target.classList.contains("editDefi")) {
         document.querySelector('.modifoerDefi').classList.remove("hidden")
-        let idDefi = Number(e.currentTarget.dataset.idDefi)
-        let index = items.findIndex(ele=> ele.id == idDefi)
-        let defi = items.find(ele=>ele.id == idDefi)
+        let card = event.target.closest('.defi')
+        let idDefi = Number(card.dataset.idDefi)
+        index = items.findIndex(item => item.id == idDefi)
+        let defi = items.find(item => item.id == idDefi)
+
+        console.log("modifier", defi)
         MdfFrom.defi.value = defi.nom
         MdfFrom.sport.value = defi.sport
         MdfFrom.objectif.value = defi.target
         MdfFrom.dateFin.value = defi.datefine
         MdfFrom.description.value = defi.descreption
-        
-        document.querySelector(".btnMdf").addEventListener('click',e=>{
-            e.preventDefault()
-            if(index !== -1){
-                items[index].nom = MdfFrom.defi.value
-                items[index].sport = MdfFrom.sport.value
-                items[index].target = MdfFrom.objectif.value
-                items[index].datefine = MdfFrom.dateFin.value
-                items[index].descreption = MdfFrom.description.value
-                localStorage.setItem('defi',JSON.stringify(items))
-                document.querySelector('.modifoerDefi').classList.add("hidden")
-                affichageDefi()
-            }
-        })
     }
 }
 
+document.querySelector(".btnMdf").addEventListener('click', event => {
+    event.preventDefault()
+    if (index !== -1) {
+        items[index].nom = MdfFrom.defi.value
+        items[index].sport = MdfFrom.sport.value
+        items[index].target = MdfFrom.objectif.value
+        items[index].datefine = MdfFrom.dateFin.value
+        items[index].descreption = MdfFrom.description.value
+        localStorage.setItem('defi', JSON.stringify(items))
+        document.querySelector('.modifoerDefi').classList.add("hidden")
+        modifierItemsStatus()
+        affichageDefi()
+        defiDeBord()
+        
+    }
+})
 
 
 
 // RecherCher defi
 
-document.getElementById("searchDefi").addEventListener("input",e=>{
+document.getElementById("searchDefi").addEventListener("input",event=>{
     let containerNotFound = document.querySelector(".notFound")
-    let inputValue = e.currentTarget.value.toLowerCase()
-    let defi = items.filter(ele=> ele.nom.toLowerCase() == inputValue)
-    if(defi.length > 0 ){
+    let inputValue = event.currentTarget.value.toLowerCase()
+    let defisFound = items.filter(item=> item.nom.toLowerCase() == inputValue)
+    if(defisFound.length > 0 ){
         containerDefi.innerHTML = ''
-        defi.forEach(ele=>{
-            containerDefi.innerHTML += divDefi(ele)
+        defisFound.forEach(defi=>{
+            containerDefi.innerHTML += divDefi(defi)
         })
         containerNotFound.textContent  = ""
     }else if(inputValue == ""){
@@ -202,5 +239,8 @@ document.getElementById("searchDefi").addEventListener("input",e=>{
         containerDefi.innerHTML = ''
         containerNotFound.textContent = "Il n'y a aucun resultat 😢"
     }
-    fDefi()
+    
 })
+
+
+

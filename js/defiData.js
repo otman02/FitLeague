@@ -6,6 +6,7 @@
         descreption : "petite race with bycecl",
         image: "assets/bicycle.webp",
         target: "80Km",
+        status,
         datefine: "2026-12-22"
     },
     {   id : 2,
@@ -14,6 +15,7 @@
         descreption : "push up context",
         image: "assets/push-up.webp",
         target: "150",
+        status,
         datefine: "2026-03-05"
     },
     {   id : 3,
@@ -22,6 +24,7 @@
         descreption : "swimming challange",
         image: "assets/swimming.webp",
         target: "150m",
+        status,
         datefine: "2026-11-14"
     },
     {   
@@ -31,6 +34,7 @@
         descreption : "walking march",
         image: "assets/walk.webp",
         target: "10Km",
+        status,
         datefine: "2026-10-31"
     },
     {   id : 5,
@@ -39,6 +43,7 @@
         descreption : "a race ",
         image: "assets/running.webp",
         target: "15Km",
+        status,
         datefine: "2026-09-15"
     }
 ]
