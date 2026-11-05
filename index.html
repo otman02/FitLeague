@@ -43,8 +43,8 @@
 
         </section>
 
-        <section class="flex justify-between">
-            <div class="w-80 bg-white h-15 flex items-center rounded-md gap-5  px-2 shadow-xl">
+        <section class="flex justify-between containerBord">
+            <!-- <div class="w-80 bg-white h-15 flex items-center rounded-md gap-5  px-2 shadow-xl">
                 <div class="bg-yellow-500 h-7 w-7 flex items-center justify-center rounded-sm"><i
                         class="fa-solid fa-trophy"> </i> </div>
                 <div class="flex flex-col justify-center">
@@ -67,7 +67,7 @@
                     <div>2 </div>
                     <p>defis actifs</p>
                 </div>
-            </div>
+            </div> -->
         </section>
 
         <section class="bg-white rounded-md h-30 flex justify-around items-center gap-5 shadow-xl">
@@ -192,6 +192,34 @@
 
 
 
+
+
+
+    <div class="formAjouterPArticiapnt fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center hidden"
+        >
+        <div class="  bg-white w-full max-w-md p-6 rounded-3xl shadow-xl"> <button
+                class="closeAjoutePart bottom-5 bg-red-500 rounded-xl p-1 w-10 text-white cursor-pointer">X</button>
+            <h2 class="text-2xl font-bold mb-4">Ajouter participant: </h2>
+            <form name="formInscrir" class="flex flex-col gap-5 ">
+                <label for="nom">Nom de participant:</label>
+                <input required type="text" class="border rounded-md py-2 px-4" id="nom" name="nomp"
+                    placeholder="Nom de participant">
+
+                    <div class="participantFound"></div>
+
+                <!-- <button class="bg-green-900 rounded-xl p-1 text-[#fff] btnInscrirParticipant">Ajouter Participant</button> -->
+            </form>
+        </div>
+
+    </div>
+
+
+
+
+
+
+
+    
 
 
 
@@ -464,6 +492,8 @@
     <script src="js/gestionparticipants.js"></script>
     <script src="js/main.js"></script>
     <script src="js/tableauDeBord.js"></script>
+    <script src="js/performanceData.js"></script>
+    <script src="js/gestiontPerformance.js"></script>
 </body>
 
 </html>

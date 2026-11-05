@@ -54,7 +54,6 @@ function cards(){
                ${image(par.Image,par.name,par.perferormance)}
                ${content(par.name,par.pseudo,par.id)}
                 </div>
-    
     `
  }
 

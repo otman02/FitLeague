@@ -5,7 +5,7 @@ if (localStorage.getItem('defi') === null) {
 // kanjibo les defi 
 let items = JSON.parse(localStorage.getItem("defi"))
 // kantrbohm 3la hsab date jdid howa lewl
-const trieDefi = ()=>{items.sort((firstDate, secondDate)=> new Date(secondDate.datefine) - new Date(firstDate.datefine) )}
+const trieDefi = () => { items.sort((firstDate, secondDate) => new Date(secondDate.datefine) - new Date(firstDate.datefine)) }
 console.log(items)
 // kanjibo id li kbir howa li kanbdaq bih bach maykonch id m3awd
 let config = {
@@ -18,10 +18,11 @@ let ajouterForm = document.forms.formDefi
 let MdfFrom = document.forms.modifierDefi
 let statusDeForm = document.querySelector(".statusDeForm")
 let defiAjout;
+let idDefi;
 
 
 // kat9ad status ta3 defi 3la hsab date
-function verifierStatus(defi){
+function verifierStatus(defi) {
     let dateFin = new Date(defi.datefine)
     let now = new Date()
     let status = 'en cours'
@@ -32,22 +33,22 @@ function verifierStatus(defi){
 }
 
 // hna kandiro push ldik status li l9ina fi tableau ta3 defi li kaync f localstorage
-function modifierItemsStatus(){
-        items.forEach(item=>{
-            if(verifierStatus(item) === "en cours"){
-                item.status = "en cours"
-            }
-            if(verifierStatus(item) === "terminer"){
-                item.status = "terminer"
-            }
-            
-        })
-        localStorage.setItem('defi', JSON.stringify(items))
-        items = JSON.parse(localStorage.getItem("defi"))
-        console.log("modifier status=>",items)
+function modifierItemsStatus() {
+    items.forEach(item => {
+        if (verifierStatus(item) === "en cours") {
+            item.status = "en cours"
+        }
+        if (verifierStatus(item) === "terminer") {
+            item.status = "terminer"
+        }
+    })
+    localStorage.setItem('defi', JSON.stringify(items))
+    items = JSON.parse(localStorage.getItem("defi"))
+    console.log("modifier status=>", items)
+    
 }
-modifierItemsStatus()
 affichageDefi()
+modifierItemsStatus()
 
 
 // __________________Ajouter Defi_________________________________
@@ -56,12 +57,12 @@ document.querySelector(".btnAjout").addEventListener('click', event => {
     if (validation() == true) {
         items.push(defiAjout)
         config.id += 1
-        localStorage.setItem('defi',JSON.stringify(items))
+        localStorage.setItem('defi', JSON.stringify(items))
         affichageDefi()
         window.alert("Le defi cree avec succee!")
         document.getElementById("nvdefi").classList.add("hidden")
         ajouterForm.reset()
-    }else{
+    } else {
         window.alert("Valider votre information!")
     }
 })
@@ -69,7 +70,7 @@ document.querySelector(".btnAjout").addEventListener('click', event => {
 
 
 function divDefi(defi) {
-    
+
     return `
         <div class="max-w-sm rounded overflow-hidden shadow-lg mb-4 defi" data-id-defi="${defi.id}">
             <img class="w-md h-56 object-cover" src="${defi.image}" alt="${defi.sport}">
@@ -94,7 +95,7 @@ function divDefi(defi) {
                     <i class="deleteDefi fa-solid fa-trash"></i>
                 </button>
                 <button
-                    class="inscririPartc bg-gray-200 rounded-full px-3 py-1 text-md text-green-700 mt-4 cursor-pointer">
+                    class="inscririPartc bg-gray-200 rounded-full px-3 py-1 text-md text-green-700 mt-4 cursor-pointer" ${defi.status === 'terminer' ? 'disabled ':''} data-id-defi="${defi.id}">
                     Inscrir
                     <i class="fa-solid fa-person-circle-plus"></i>
                 </button>
@@ -109,34 +110,37 @@ function divDefi(defi) {
 
 function affichageDefi() {
     trieDefi()
+    modifierItemsStatus()
     containerDefi.innerHTML = ''
     let div = ''
     items.forEach(item => {
         div += divDefi(item)
     })
+    
     containerDefi.innerHTML = div
     
 }
 
-function containerDefiEvent(conatiner){
+function containerDefiEvent(conatiner) {
     conatiner.addEventListener('click', event => {
         supprimerDefi(event);
         modifierDefi(event);
+        afficherFormAjoutPart(event)
     })
 }
 containerDefiEvent(containerDefi)
 
 // Ajouter Defi
 function validation() {
-    let path  = "C:\\Users\\Youcode\\Desktop\\FitLeague\\public\\"
-    console.log("path=>",path)
+    let path = "C:\\Users\\Youcode\\Desktop\\FitLeague\\public\\"
+    console.log("path=>", path)
     let nom = ajouterForm.defi.value
     let sport = ajouterForm.sport.value
     let objectif = ajouterForm.objectif.value
     let dateFin = ajouterForm.dateFin.value
     let description = ajouterForm.description.value
-    let image = ajouterForm.image.value.replace("C:\\fakepath\\",path)
-    console.log("image=>",image);
+    let image = ajouterForm.image.value.replace("C:\\fakepath\\", path)
+    console.log("image=>", image);
 
 
     if (nom == "" || sport == "" || objectif == "" || dateFin == "" || description == "" || image == "") {
@@ -157,7 +161,7 @@ function validation() {
             target: objectif,
             datefine: dateFin
         }
-        console.log("defi ajouter=>",defiAjout)
+        console.log("defi ajouter=>", defiAjout)
         return true
     }
 }
@@ -168,17 +172,17 @@ function supprimerDefi(event) {
     if (event.target.classList.contains('deleteDefi')) {
         if (window.confirm("Supprimer le defi!")) {
             let card = event.target.closest('.defi')
-            let idDefi = Number(card.dataset.idDefi)
+            idDefi = Number(card.dataset.idDefi)
             let index = items.findIndex(item => item.id == idDefi)
             if (index !== -1) {
                 items.splice(index, 1)
-                localStorage.setItem('defi',JSON.stringify(items))
+                localStorage.setItem('defi', JSON.stringify(items))
                 affichageDefi()
                 defiDeBord()
             }
         }
     }
-    
+
 }
 
 
@@ -214,7 +218,7 @@ document.querySelector(".btnMdf").addEventListener('click', event => {
         modifierItemsStatus()
         affichageDefi()
         defiDeBord()
-        
+
     }
 })
 
@@ -222,25 +226,43 @@ document.querySelector(".btnMdf").addEventListener('click', event => {
 
 // RecherCher defi
 
-document.getElementById("searchDefi").addEventListener("input",event=>{
+document.getElementById("searchDefi").addEventListener("input", event => {
     let containerNotFound = document.querySelector(".notFound")
     let inputValue = event.currentTarget.value.toLowerCase()
-    let defisFound = items.filter(item=> item.nom.toLowerCase() == inputValue)
-    if(defisFound.length > 0 ){
+    let defisFound = items.filter(item => item.nom.toLowerCase() == inputValue)
+    if (defisFound.length > 0) {
         containerDefi.innerHTML = ''
-        defisFound.forEach(defi=>{
+        defisFound.forEach(defi => {
             containerDefi.innerHTML += divDefi(defi)
         })
-        containerNotFound.textContent  = ""
-    }else if(inputValue == ""){
-        containerNotFound.textContent  = ""
+        containerNotFound.textContent = ""
+    } else if (inputValue == "") {
+        containerNotFound.textContent = ""
         affichageDefi()
-    }else{
+    } else {
         containerDefi.innerHTML = ''
         containerNotFound.textContent = "Il n'y a aucun resultat 😢"
     }
-    
+
 })
 
 
 
+
+// Ajouter participant sur le defi
+
+let idDefiInscrir;
+function afficherFormAjoutPart(event) {
+    // btnInsciptionParticipant.addEventListener('click',event=>{
+    //     document.querySelector(".formAjouterPArticiapnt").classList.remove('hidden')
+    // })
+
+    // document.getElementById("closeAjoutePart").addEventListener('click',event=>{
+    //     document.querySelector(".formAjouterPArticiapnt").classList.add('hidden')
+    // })
+    if (event.target.classList.contains('inscririPartc')) {
+        idDefiInscrir = Number(event.target.dataset.idDefi)
+        document.querySelector(".formAjouterPArticiapnt").classList.remove('hidden')
+        afficherLesParticipantFound()
+    }
+}

@@ -11,6 +11,7 @@ function defiDeBord(){
     })
     containerBordDefiEncours.innerHTML = div
 }
+
 defiDeBord()
 containerDefiEvent(containerBordDefiEncours)
 
