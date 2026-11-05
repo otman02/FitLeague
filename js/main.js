@@ -77,6 +77,7 @@ function activerBoutonsmodifier(){
     document.getElementById("pseudo-mdf").value =par.pseudo
     document.getElementById("performance-mdf").value =par.perferormance
    
+   
 
  });
 })
@@ -92,6 +93,7 @@ document.getElementById("btnmdpart").addEventListener("click",(e)=>{
      par.name=document.getElementById("name-mdf").value
      par.pseudo = document.getElementById("pseudo-mdf").value
      par.perferormance=Number(document.getElementById("performance-mdf").value)
+     
     
 
      document.getElementById("Mdfprti").classList.add("hidden")
@@ -108,3 +110,45 @@ document.getElementById("btnmdpart").addEventListener("click",(e)=>{
 
   const perferormanceselecter = document.getElementById("performance-mdf")
   for (let i=1 ;i<=100 ;i++){perferormanceselecter.innerHTML += `<option value="${i}">${i}</option>`}
+
+
+
+
+  document.getElementById("ajouter-participant").addEventListener("click",()=>{
+    document.getElementById("ajouter").classList.remove("hidden")
+  })
+
+  document.getElementById("close-ajourte").addEventListener("click",()=>{
+    document.getElementById("ajouter").classList.add("hidden")
+  })
+
+   const perferormance = document.getElementById("performance")
+  for (let j=1 ;j<=100 ;j++){perferormance .innerHTML += `<option value="${j}">${j}</option>`}
+
+
+
+//ajouter des participants
+
+
+   document.getElementById("button-ajouter").addEventListener("click",(event)=>{
+  event.preventDefault()
+let nom = document.getElementById("name").value
+let user_name=document.getElementById("pseudo").value
+let performancee = document.getElementById("performance").value
+
+
+let new_paricipant ={
+                 name : nom,
+                 pseudo: user_name ,               
+                 Image: "assets/spider-man-marvel-6000x4000-11025.jpg",
+                 perferormance:performancee 
+                 
+ }
+
+
+ participantes.push(new_paricipant)
+ cards()
+
+
+
+ })

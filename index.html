@@ -297,8 +297,13 @@
         </header> -->
 
         <section class="flex gap-8 flex-col">
-            <h1 class="font-bold bg-yellow-200 w-40 h-10 rounded-xl flex justify-center items-center shadow-xl">les
+            <div class="flex justify-between">
+                <h1 class="font-bold bg-yellow-200 w-40 h-10 rounded-xl flex justify-center items-center shadow-xl">les
                 participantes</h1>
+                <button class="bg-green-500 rounded-sm" id="ajouter-participant">ajouter participant</button>
+                
+            </div>
+            
             <div id="partici" class="flex gap-12 flex-wrap">
                 <!-- <div class="flex gap-15 justify-center items-center w-90 h-25 bg-green-600 rounded-md shadow-xl">
                     <div><img src="assets/marvels-spider-man-3840x2160-11990.jpeg" alt="otman"
@@ -373,7 +378,7 @@
 
 
                         <label for="photoDefi">profile</label>
-                        <input type="file" id="profile"
+                        <input type="file" id="participant-profile"
                             class="file:mr-3 file:py-2 file:px-4 file:border-0 hover:file:bg-green-900 text-balck text-sm border rounded-md file:bg-black file:text-white shadow-xl"
                             name="image">
 
@@ -384,6 +389,48 @@
             </div>
 
         </section>
+
+
+
+
+
+        
+            <div class="ajouter-participant popUp fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center hidden"
+                id="ajouter">
+                <div class="  bg-white w-full max-w-md p-6 rounded-3xl shadow-xl"> <button id="close-ajourte"
+                        class=" bottom-5 bg-red-500 rounded-xl p-1 w-10 text-white cursor-pointer">X</button>
+                    <h2 class="text-2xl font-bold mb-4">entre les information de participant</h2>
+                    <form name="ajouterparticipants" class="flex flex-col gap-5 ">
+
+
+                        <label for="name">name</label>
+                        <input required type="text" class="border rounded-md py-2 px-4" id="name" name="participant"
+                            placeholder="Nomde participant">
+
+                        <label for="pseudo">pseudo</label><input required type="text"
+                            class="border rounded-md py-2 px-4" id="pseudo" name="le pseudoname de participant"
+                            placeholder="pseudo">
+                        <div><label for="performance">
+                                <select name="performance" required type="text" class="border rounded-md py-2 px-4"
+                                    id="performance" name="le perf de participant">
+                                    <option value="" selected disabled>select performance</option>
+
+                                </select>
+                            </label>
+
+                        </div>
+
+
+                        <label for="photoDefi">profile</label>
+                        <input type="file" id="participant-profile"
+                            class="file:mr-3 file:py-2 file:px-4 file:border-0 hover:file:bg-green-900 text-balck text-sm border rounded-md file:bg-black file:text-white shadow-xl"
+                            name="image">
+
+                        <button id="button-ajouter" class="bg-green-900 rounded-xl p-1 text-[#fff] ">ajouter</button>
+                    </form>
+                </div>
+
+            </div>
 
 
 
