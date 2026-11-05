@@ -1,14 +1,18 @@
 let curentID=null
+let ID =null
 
  let participants = document.querySelector("#partici")
 
 cards()
 
 
+
 function cards(){
     participants.innerHTML=""
     
+    
     participantes.forEach(par=>  participants.innerHTML += card(par))}
+  
 
 
 
@@ -34,11 +38,11 @@ function cards(){
                         <p class="font-bold">${name}</p>
                         <p>${pseudo}</p>
                     </div>
-                    <div class="flex flex-col gap-2"><button data-id=${id} class=" btnparticipants-modifier bg-yellow-200 rounded-md cursor-pointer"><i
-                                class="fa-solid fa-pen-to-square"></i></button><button
-                            class="bg-red-500 rounded-md cursor-pointer"><i
-                                class="fa-solid fa-trash"></i></button><button
-                            class="bg-green-100 cursor-pointer rounded-md"><i class="fa-solid fa-eye"></i></button>
+                    <div class="flex flex-col gap-2"><button data-id=${id} class=" btnparticipants-modifier bg-yellow-200 rounded-md cursor-pointer"><i class="fa-solid fa-pen-to-square"></i></button>
+
+                                <button class=" button-suprimer bg-red-500 rounded-md cursor-pointer" data-id=${id}><i class="fa-solid fa-trash"></i></button>
+                                
+                                <button class="bg-green-100 cursor-pointer rounded-md"><i class="fa-solid fa-eye"></i></button>
                     </div>
                 `
                 

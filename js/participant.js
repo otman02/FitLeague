@@ -9,7 +9,7 @@ const participantes = [
               
             },
              {
-                id : 1,
+                id : 2,
                 name : "otman hannoun",
                 pseudo: "mrxma" ,               
                  Image: "assets/spider-man-marvel-6000x4000-11025.jpg",
@@ -17,7 +17,7 @@ const participantes = [
               
             },
              {
-                id : 1,
+                id : 3,
                 name : "otman hannoun",
                 pseudo: "mrxma" ,               
                  Image: "assets/spider-man-marvel-6000x4000-11025.jpg",
@@ -26,7 +26,7 @@ const participantes = [
               
             },
              {
-                id : 1,
+                id : 4,
                 name : "otman hannoun",
                 pseudo: "mrxma" ,               
                  Image: "assets/spider-man-marvel-6000x4000-11025.jpg",
@@ -34,7 +34,7 @@ const participantes = [
               
             },
              {
-                id : 1,
+                id : 5,
                 name : "otman hannoun",
                 pseudo: "mrxma" ,               
                  Image: "assets/spider-man-marvel-6000x4000-11025.jpg",
