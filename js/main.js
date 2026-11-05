@@ -129,8 +129,8 @@ document.getElementById("btnmdpart").addEventListener("click",(e)=>{
 
 //ajouter des participants
 
-
-   document.getElementById("button-ajouter").addEventListener("click",(event)=>{
+function ajouterparticipants(){
+       document.getElementById("button-ajouter").addEventListener("click",(event)=>{
   event.preventDefault()
 let nom = document.getElementById("name").value
 let user_name=document.getElementById("pseudo").value
@@ -147,8 +147,34 @@ let new_paricipant ={
 
 
  participantes.push(new_paricipant)
+ document.getElementById("ajouter").classList.add("hidden")
  cards()
+ 
+  
 
 
 
  })
+}
+  ajouterparticipants( )
+
+
+
+
+
+function suprimerparticipants(){
+    
+  document.querySelectorAll(".button-suprimer").forEach(button=>{
+    button.addEventListener("click",(e)=>{
+        ID = Number(button.dataset.id)
+        let indexparticip= participantes.findIndex(part=>part.id == ID)
+        participantes.splice(indexparticip,1)
+        cards()
+        suprimerparticipants()
+        activerBoutonsmodifier()
+
+
+        
+    })
+  })
+} suprimerparticipants()
