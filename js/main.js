@@ -121,3 +121,34 @@ document.getElementById("btnmdpart").addEventListener("click",(e)=>{
   document.getElementById("close-ajourte").addEventListener("click",()=>{
     document.getElementById("ajouter").classList.add("hidden")
   })
+
+   const perferormance = document.getElementById("performance")
+  for (let j=1 ;j<=100 ;j++){perferormance .innerHTML += `<option value="${j}">${j}</option>`}
+
+
+
+//ajouter des participants
+
+
+   document.getElementById("button-ajouter").addEventListener("click",(event)=>{
+  event.preventDefault()
+let nom = document.getElementById("name").value
+let user_name=document.getElementById("pseudo").value
+let performancee = document.getElementById("performance").value
+
+
+let new_paricipant ={
+                 name : nom,
+                 pseudo: user_name ,               
+                 Image: "assets/spider-man-marvel-6000x4000-11025.jpg",
+                 perferormance:performancee 
+                 
+ }
+
+
+ participantes.push(new_paricipant)
+ cards()
+
+
+
+ })
