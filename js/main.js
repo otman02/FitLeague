@@ -166,12 +166,14 @@ function suprimerparticipants(){
     
   document.querySelectorAll(".button-suprimer").forEach(button=>{
     button.addEventListener("click",(e)=>{
-        ID = Number(button.dataset.id)
-        let indexparticip= participantes.findIndex(part=>part.id == ID)
-        participantes.splice(indexparticip,1)
-        cards()
-        suprimerparticipants()
-        activerBoutonsmodifier()
+        if(window.confirm("Supprimer participant!")){
+            ID = Number(button.dataset.id)
+            let indexparticip= participantes.findIndex(part=>part.id == ID)
+            participantes.splice(indexparticip,1)
+            cards()
+            suprimerparticipants()
+            activerBoutonsmodifier()
+        }
 
 
         
